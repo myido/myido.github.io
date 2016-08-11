@@ -21,7 +21,7 @@
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -43,7 +43,7 @@
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -51,47 +51,51 @@
 
     
   <url>
-    <loc>http://www.huoma.net/2015/06/13/bananapi-lnmp/</loc>
+    <loc>http://www.huoma.net/2015/09/24/bananapi-mysql_recovery/</loc>
     <lastmod>2016-08-11T03:15:58.070Z</lastmod>
     <data>
         <display>
-        <title>[BananaPI]搭建LNMP服务器</title>
-        <pubTime>2015-06-13T09:56:30.000Z</pubTime>
+        <title>[BananaPI]系统重装后MySQL数据恢复方法</title>
+        <pubTime>2015-09-24T12:52:57.000Z</pubTime>
+        
+        <tag>bananapi</tag>
+         
+        <tag>路由器</tag>
+         
+        <tag>PHP</tag>
+         
+        <tag>mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2016/01/17/bananapi-openmediavault/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>[BananaPI]Openmediavault</title>
+        <pubTime>2016-01-17T02:14:01.000Z</pubTime>
         
         <tag>bananapi</tag>
          
         <tag>debian</tag>
          
-        <tag>PHP</tag>
+        <tag>NAS</tag>
+         
+        <tag>openmediava</tag>
          
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2015/06/08/bananapi-password/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>[BananaPI]香蕉派忘记密码了怎么办</title>
-        <pubTime>2015-06-08T03:41:41.000Z</pubTime>
-        
-        <tag>bananapi</tag>
-         
-        <tag>lubuntu</tag>
-         
-        <tag>XBMC</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -115,7 +119,7 @@
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -139,7 +143,7 @@
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -163,7 +167,7 @@
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -171,23 +175,21 @@
 
     
   <url>
-    <loc>http://www.huoma.net/2015/09/23/bananian-gnome-vnc/</loc>
+    <loc>http://www.huoma.net/2015/06/03/bananapi/</loc>
     <lastmod>2016-08-11T03:15:58.070Z</lastmod>
     <data>
         <display>
-        <title>[BananaPI]给Bananian安装gnome桌面+VNC</title>
-        <pubTime>2015-09-23T12:42:35.000Z</pubTime>
+        <title>[BananaPI]开始折腾香蕉派</title>
+        <pubTime>2015-06-03T10:30:43.000Z</pubTime>
         
         <tag>bananapi</tag>
          
         <tag>debian</tag>
          
-        <tag>路由器</tag>
-         
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -211,7 +213,7 @@
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -235,7 +237,7 @@
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -259,7 +261,7 @@
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -283,7 +285,7 @@
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -305,7 +307,7 @@
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -327,33 +329,7 @@
          
            
              
-              <breadCrumb title="建站技术" url="http://www.huoma.net/categories/%E5%BB%BA%E7%AB%99%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2016/01/17/e9-a6-99-e8-95-89-e6-b4-be-e5-ae-89-e8-a3-85openmediavault/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>[BananaPI]Openmediavault</title>
-        <pubTime>2016-01-17T02:14:01.000Z</pubTime>
-        
-        <tag>bananapi</tag>
-         
-        <tag>debian</tag>
-         
-        <tag>NAS</tag>
-         
-        <tag>openmediava</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="建站技术" url="http://www.huoma.net/categories/web/"/>
           
         </display>
     </data>
@@ -375,7 +351,7 @@
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -383,7 +359,31 @@
 
     
   <url>
-    <loc>http://www.huoma.net/2015/09/19/bananapi-e5-85-b3-e9-97-ad-e9-97-aa-e5-8a-a8-e7-9a-84-e7-bb-bf-e7-81-af/</loc>
+    <loc>http://www.huoma.net/2015/06/08/bananapi-password/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>[BananaPI]香蕉派忘记密码了怎么办</title>
+        <pubTime>2015-06-08T03:41:41.000Z</pubTime>
+        
+        <tag>bananapi</tag>
+         
+        <tag>lubuntu</tag>
+         
+        <tag>XBMC</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2015/09/19/bananapi-green_led/</loc>
     <lastmod>2016-08-11T03:15:58.070Z</lastmod>
     <data>
         <display>
@@ -399,7 +399,7 @@
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -407,25 +407,23 @@
 
     
   <url>
-    <loc>http://www.huoma.net/2015/09/24/bananapi-e7-b3-bb-e7-bb-9f-e9-87-8d-e8-a3-85-e5-90-8emysql-e6-95-b0-e6-8d-ae-e6-81-a2-e5-a4-8d-e6-96-b9-e6-b3-95/</loc>
+    <loc>http://www.huoma.net/2015/06/13/bananapi-lnmp/</loc>
     <lastmod>2016-08-11T03:15:58.070Z</lastmod>
     <data>
         <display>
-        <title>[BananaPI]系统重装后MySQL数据恢复方法</title>
-        <pubTime>2015-09-24T12:52:57.000Z</pubTime>
+        <title>[BananaPI]搭建LNMP服务器</title>
+        <pubTime>2015-06-13T09:56:30.000Z</pubTime>
         
         <tag>bananapi</tag>
          
-        <tag>路由器</tag>
-         
-        <tag>mysql</tag>
+        <tag>debian</tag>
          
         <tag>PHP</tag>
          
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
@@ -433,21 +431,23 @@
 
     
   <url>
-    <loc>http://www.huoma.net/2015/06/03/bananapi/</loc>
+    <loc>http://www.huoma.net/2015/09/23/bananian-gnome-vnc/</loc>
     <lastmod>2016-08-11T03:15:58.070Z</lastmod>
     <data>
         <display>
-        <title>[BananaPI]开始折腾香蕉派</title>
-        <pubTime>2015-06-03T10:30:43.000Z</pubTime>
+        <title>[BananaPI]给Bananian安装gnome桌面+VNC</title>
+        <pubTime>2015-09-23T12:42:35.000Z</pubTime>
         
         <tag>bananapi</tag>
          
         <tag>debian</tag>
          
+        <tag>路由器</tag>
+         
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/%E6%9D%82%E6%96%87%E8%81%9A%E5%90%88/"/>
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
           
         </display>
     </data>
