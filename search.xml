@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[[BananaPI]Openmediavault]]></title>
+      <url>http://www.huoma.net/2016/01/17/e9-a6-99-e8-95-89-e6-b4-be-e5-ae-89-e8-a3-85openmediavault/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p><strong>OpenMediaVault</strong>是一个开源的基于Debian Linux的下一代网络附加存储(NAS)解决方案。 它包含众多服务,如SSH,(S)FTP,SMB / CIFS,DAAP媒体服务器,RSync,BitTorrent客户机等。 并具有通过插件可增强的模块化设计框架特性。</p>
+<p>OpenMediaVault主要是设计用于在家庭环境或小的家庭办公室,但不仅限于这些场景。 这是一个简单和易于使用的开箱即用的解决方案,允许任何没有更深的知识的人来安装和管理的网络附加存储(NAS)。</p>
+<p>FreeNAS、OpenMediaVault、NAS4Free关系：Olivier Cochard-Labbe在2005年创建了FreeNAS项目，后Volker Theile加入该项目作为核心开发人员；2009年12月Olivier Cochard-Labbe发表声明停止为FreeNAS 0.7版本开发新功能后，Volker Theile创建了基于Debian Linux的OpenMediaVault项目，并采用GPLv3授权；iXsystems收购FreeNAS后重写了网页框架和构架在2011年发布了全新的FreeNAS 8版本；2011年其余开发者基于FreeNAS 0.7开发了分支并重新命名为NAS4Free 。<br>可以到 <a href="http://www.lemaker.org" target="_blank" rel="external">lemaker</a> 下载安装文件</p>
+</blockquote>
+<p>论坛搜索关键字：BanaNAS OMV</p>
+<p>Image can download from <a href="http://bananas.gda.pl/pobierz/" target="_blank" rel="external">bananas.gda.pl</a></p>
+<p>Support for OMV in <a href="http://forums.openmediavault.org/" target="_blank" rel="external">http://forums.openmediavault.org/</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[BananaPI]系统重装后MySQL数据恢复方法]]></title>
+      <url>http://www.huoma.net/2015/09/24/bananapi-e7-b3-bb-e7-bb-9f-e9-87-8d-e8-a3-85-e5-90-8emysql-e6-95-b0-e6-8d-ae-e6-81-a2-e5-a4-8d-e6-96-b9-e6-b3-95/</url>
+      <content type="html"><![CDATA[<p>由于在重装系统之前采用直接备份数据库目录的方式保存数据，所以重装后只能使用替换的方式恢复数据。<br>主要包含以下目录:</p>
+<ul>
+<li>mysql</li>
+<li>数据库1<em>(备份的数据库)</em></li>
+<li>…</li>
+<li>ibdata1<em>（是元数据）</em></li>
+</ul>
+<h3 id="一、安装新MySQL数据库"><a href="#一、安装新MySQL数据库" class="headerlink" title="一、安装新MySQL数据库"></a>一、安装新MySQL数据库</h3><p>当然是重新安装MYSQL数据库啦。但是记得数据库的密码必须要跟原先的数据库密码相同。</p>
+<h3 id="二、创建数据库"><a href="#二、创建数据库" class="headerlink" title="二、创建数据库"></a>二、创建数据库</h3><p>进入数据库</p>
+<blockquote>
+<p>mysql -u root –p<br>创建与备份数据库相同的库名<br>**</p>
+<p>mysql&gt;<strong>CREATE DATABASE</strong> 库名(数据库1)**;</p>
+<p><strong>mysql&gt;</strong>exit;;</p>
+</blockquote>
+<h3 id="三、恢复数据"><a href="#三、恢复数据" class="headerlink" title="三、恢复数据"></a>三、恢复数据</h3><p>将保存的文件夹替换数据库目录就完成了。</p>
+<p>最后记得重启。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[BananaPI]给Bananian安装gnome桌面+VNC]]></title>
+      <url>http://www.huoma.net/2015/09/23/bananian-gnome-vnc/</url>
+      <content type="html"><![CDATA[<p>Bananian 没有图形桌BananaPI面，所以想要实现VNC连接就要安装一个图形桌面，linux下有很多桌面，如kde、lxde等等。</p>
+<p>今天主要是介绍下在Bananian  系统下安装gnome桌面和安装tightvnc进行远程连接操作。</p>
+<h3 id="一、登陆ssh后："><a href="#一、登陆ssh后：" class="headerlink" title="一、登陆ssh后："></a>一、登陆ssh后：</h3><p>输入以下命令</p>
+<blockquote>
+<p>apt-get install update<br>如果不行可以尝试apt-get update</p>
+</blockquote>
+<h3 id="二、安装gnome："><a href="#二、安装gnome：" class="headerlink" title="二、安装gnome："></a>二、安装gnome：</h3><p>我只安装了精简的内核文件，因为BananaPI的内存资源是有限的</p>
+<blockquote>
+<p>apt-get install x-window-system-core</p>
+<p>apt-get install gnome-desktop-environment<br>安装后需要安装下字体文件：<br>apt-get install xfonts-100dpi</p>
+<p>apt-get install xfonts-100dpi-transcoded</p>
+<p>apt-get install xfonts-75dpi</p>
+<p>apt-get install xfonts-75dpi-transcoded</p>
+<p>apt-get install xfonts-base</p>
+</blockquote>
+<h3 id="三、安装变异后需要安装下vnc的服务端tightvnc："><a href="#三、安装变异后需要安装下vnc的服务端tightvnc：" class="headerlink" title="三、安装变异后需要安装下vnc的服务端tightvnc："></a>三、安装变异后需要安装下vnc的服务端tightvnc：</h3><blockquote>
+<p>apt-get install tightvncserver</p>
+<p>tightvncserver :1<br>:1前面是有空格隔开的。</p>
+</blockquote>
+<p>这个时候需要你设置vnc的密码 输入两遍。</p>
+<blockquote>
+<p>tightvncserver -kill :1<br>vi ~/root/.vnc/xstartup # 编辑vnc的启动界面<br>配置文件如下：<br>xrdb $HOME/.Xresources</p>
+<p>xsetroot -solid grey</p>
+<p>x-terminal-emulator -geometry 80×24+10+10 -ls -title “$VNCDESKTOP Desktop” &amp;</p>
+<p>#x-window-manager &amp;</p>
+<h1 id="Fix-to-make-GNOME-work"><a href="#Fix-to-make-GNOME-work" class="headerlink" title="Fix to make GNOME work"></a>Fix to make GNOME work</h1><p>#export XKL_XMODMAP_DISABLE=1</p>
+<p>#/etc/X11/Xsession</p>
+<p>gnome-session &amp;<br>配置完成后启动vnc服务 命令为：<br>tightvncserver -geometry 800×600 :1 #分辨率是800*600</p>
+</blockquote>
+<h3 id="四、用vncview来进行访问"><a href="#四、用vncview来进行访问" class="headerlink" title="四、用vncview来进行访问"></a>四、用vncview来进行访问</h3><p>打开vnc工具，连接地址IP:1。</p>
+<h3 id="五、程序自启动"><a href="#五、程序自启动" class="headerlink" title="五、程序自启动"></a>五、程序自启动</h3><p>把以下内容写入 /etc/rc.local</p>
+<p>su -c ‘/usr/bin/tightvncserver -geometry 800×600 :1’</p>
+<hr>
+<h3 id="【可选桌面环境】"><a href="#【可选桌面环境】" class="headerlink" title="【可选桌面环境】"></a>【可选桌面环境】</h3><p>LXDE专案旨在提供一个新的轻量、快速的桌面环境。相较于功能强大与伴随而来的膨胀性，LXDE注重于实用性和轻巧性，并且尽力降低其所耗系统资源。不同于其它桌面环境，其元件相依性极少。取而代之的是各元件可以独立运作，大多数的元件都不须倚赖其它套件而可以独自执行。</p>
+<h3 id="安装LXDE环境"><a href="#安装LXDE环境" class="headerlink" title="安装LXDE环境"></a>安装LXDE环境</h3><p>apt-get install xorg lxde-core</p>
+<h3 id="修改xstartup系统文件"><a href="#修改xstartup系统文件" class="headerlink" title="修改xstartup系统文件"></a>修改xstartup系统文件</h3><p>然后在文件的最后添加下面的脚本代码</p>
+<blockquote>
+<p>lxterminal &amp;</p>
+<p>/usr/bin/lxsession -s LXDE &amp;<br>&nbsp;</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[BananaPI]关闭闪动的绿灯]]></title>
+      <url>http://www.huoma.net/2015/09/19/bananapi-e5-85-b3-e9-97-ad-e9-97-aa-e5-8a-a8-e7-9a-84-e7-bb-bf-e7-81-af/</url>
+      <content type="html"><![CDATA[<p><strong>Can the green blinking LED be disabled?</strong><br>A: Yes, execute: ‘echo none &gt; /sys/class/leds/green\:ph24\:led1/trigger’.<br>To make it permanent add this command to /etc/rc.local</p>
+<blockquote>
+<p><span style="color: #0000ff;"><strong>echo none &gt; /sys/class/leds/green\:ph24\:led1/trigger</strong></span><br>写入到 <strong>/etc/rc.local</strong> 文件里头重启就能看到效果了。</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[BananaPI]香蕉派支持迅雷离线下载]]></title>
+      <url>http://www.huoma.net/2015/09/13/bananapi-xunlei/</url>
+      <content type="html"><![CDATA[<blockquote>
+<h2 id="【可参考文章】"><a href="#【可参考文章】" class="headerlink" title="【可参考文章】"></a><strong>【可参考文章】</strong></h2><ul>
+<li><a href="http://www.dozer.cc/2014/05/raspberry-pi-nas.html" target="_blank" rel="external">http://www.dozer.cc/2014/05/raspberry-pi-nas.html</a></li>
+<li><a href="http://jingyan.eeboard.com/article/73716" target="_blank" rel="external">http://jingyan.eeboard.com/article/73716</a><br>由于安装的是Bananian,所以几篇文章提到的几个版本的Xware插件都不能运行，不是提示”<strong>permission denied</strong>“,就是文件不存在。</li>
+</ul>
+</blockquote>
+<p>所以我们要另外找个支持的版本。</p>
+<p>输入命令: <strong>cat /proc/cpuinfo</strong></p>
+<blockquote>
+<p>Processor : ARMv7 Processor rev 4 (v7l)</p>
+<p>processor : 0</p>
+<p>BogoMIPS : 1192.96</p>
+<p>processor : 1</p>
+<p>BogoMIPS : 1197.05</p>
+<p>…<br>这里的<em><span style="text-decoration: underline;">ARMv7 Processor rev 4 </span></em>就是我们要的</p>
+</blockquote>
+<p>在<a href="http://g.xunlei.com/thread-50-1-1.html" target="_blank" rel="external">http://g.xunlei.com/thread-50-1-1.html</a>里，就只有 <strong>Cubieboard</strong> 两个版本支持这个CPU。</p>
+<p>其他的按上面两篇文章按部就班的完成就可以了。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[BananaPI]安装aria2脱机下载[续]]]></title>
+      <url>http://www.huoma.net/2015/06/14/bananapi-aria2/</url>
+      <content type="html"><![CDATA[<p>在文章<a href="http://www.huoma.net/archives/openwrt_aria2/">《[openwrt]安装aria2脱机下载》</a>已经初步知道了aria2的安装及配置，然而在香蕉派中使用却碰到了无法自行启动，客户端连接出现“Error: Internal server error”等错误的问题，现在让我们一一解决：</p>
+<h3 id="1-让aria2随机自动启动"><a href="#1-让aria2随机自动启动" class="headerlink" title="1.让aria2随机自动启动"></a>1.让aria2随机自动启动</h3><p><strong>使用命令：</strong>ps -e | grep aria2c<br>如果能查到aria2这个进程，那么就说明已经启动了，下面这些步骤就可以省略了</p>
+<p><strong><br>创建文件</strong>/etc/init.d/aria2</p>
+<blockquote>
+<p>#!/bin/sh</p>
+<h3 id="BEGIN-INIT-INFO"><a href="#BEGIN-INIT-INFO" class="headerlink" title="BEGIN INIT INFO"></a>BEGIN INIT INFO</h3><h1 id="Provides-Aria2-Short-Description-Aria2-Download-Manager"><a href="#Provides-Aria2-Short-Description-Aria2-Download-Manager" class="headerlink" title="Provides: Aria2 Short-Description: Aria2 - Download Manager"></a>Provides: Aria2 Short-Description: Aria2 - Download Manager</h1><h1 id="Description-Aria2-Download-Manager"><a href="#Description-Aria2-Download-Manager" class="headerlink" title="Description: Aria2 - Download Manager"></a>Description: Aria2 - Download Manager</h1><h3 id="END-INIT-INFO"><a href="#END-INIT-INFO" class="headerlink" title="END INIT INFO"></a>END INIT INFO</h3><p>RETVAL=0</p>
+<p>case “$1” in</p>
+<p>start)</p>
+<p>echo -n “Starting aria2c daemon: “</p>
+<p>umask 0000</p>
+<p>/usr/bin/aria2c –conf-path=<span style="color: #ff0000;">/etc/aria2/aria2.conf</span></p>
+<p>RETVAL=$?</p>
+<p>echo</p>
+<p>;;</p>
+<p>stop)</p>
+<p>echo -n “Shutting down aria2c daemon: “</p>
+<p>/usr/bin/killall aria2c</p>
+<p>RETVAL=$?</p>
+<p>echo</p>
+<p>;;</p>
+<p>restart)</p>
+<p>$0 stop</p>
+<p>sleep 3</p>
+<p>$0 start</p>
+<p>;;</p>
+<p>*)</p>
+<p>echo $”Usage: $0 {start|stop|restart}”</p>
+<p>RETVAL=1</p>
+<p>esac</p>
+<p>exit $RETVAL<br>红色部分是配置文件位置</p>
+</blockquote>
+<p><strong>赋予执行权限：</strong>chmod 755 /etc/init.d/aria2</p>
+<p><strong>加入自启动命令</strong>/etc/rc.local</p>
+<blockquote>
+<p>sudo /etc/init.d/aria2 start<br>重启，在使用最上面那个命令查看进程是否已经启动。</p>
+</blockquote>
+<hr>
+<h2 id="2、安装客户端-bypy"><a href="#2、安装客户端-bypy" class="headerlink" title="2、安装客户端   bypy"></a>2、安装客户端   <a href="https://github.com/houtianze/bypy" target="_blank" rel="external">bypy</a></h2><p>使用MBL&amp;MC增强插件，虽然能添加下载任务，但是半天根本就没动静，所以又找了一个程序——<a href="https://github.com/houtianze/bypy" target="_blank" rel="external">bypy</a></p>
+<blockquote>
+<p>这是一个百度云/百度网盘的Python客户端。主要的目的就是在Linux环境下（Windows下应该也可用，但没有仔细测试过）通过命令行来使用百度云盘的2TB的巨大空间。比如，你可以用在Raspberry Pi树莓派上。它提供文件列表、下载、上传、比较、向上同步、向下同步，等操作。<br>使用后发现还能自动断点续传，缺点就是安装比较麻烦，没有界面。</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/LiuLang/bcloud" target="_blank" rel="external">bcloud</a> 是百度网盘的Linux桌面客户端.<br>1.安装程序：<blockquote>
+<ol>
+<li>sudo apt-get install git</li>
+<li>sudo apt-get install python</li>
+<li>git clone git://github.com/kennethreitz/requests.git<br>Requests是python的一个HTTP客户端库，跟urllib，urllib2类似.</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p>执行命令：</p>
+<blockquote>
+<p>cd /root/requests/</p>
+<p>python setup.py install<br>下载bypy<br>git clone <a href="https://github.com/houtianze/bypy.git" target="_blank" rel="external">https://github.com/houtianze/bypy.git</a><br>在/root/文件夹里面就能看到bypy文件夹了，拷贝到任意文件夹里面<br>具体操作到<a href="https://github.com/houtianze/bypy" target="_blank" rel="external">https://github.com/houtianze/bypy</a></p>
+</blockquote>
+<p><span style="color: #ff0000;"><strong>由于百度PCS API权限限制，程序只能存取百度云端/apps/bypy目录下面的文件和目录。
+</strong></span>apps就是”我的应用数据“这个文件夹</p>
+<blockquote>
+<p>/root/bypy/bypy.py syncdown <span style="color: #339966;">/vedio/</span> <span style="color: #3366ff;">/mnt/download/</span></p>
+<p>#<span style="color: #339966;">/vedio/</span>是百度云bypy文件夹下的vedio文件夹</p>
+<p>#<span style="color: #3366ff;">/mnt/download/</span>本地保存文件夹</p>
+</blockquote>
+<p>这样只要保存到百度云的文件夹，执行这个命令就能同步到本地了</p>
+<h2 id="3-百度网盘助手【BaiduExporter】"><a href="#3-百度网盘助手【BaiduExporter】" class="headerlink" title="3.百度网盘助手【BaiduExporter】"></a>3.百度网盘助手【BaiduExporter】</h2><p>上面的bypy虽然能用，但是稍微麻烦了点。今天又找一个插件[百度网盘助手BaiduExporter],简单实用</p>
+<blockquote>
+<p>可以方便的把百度网盘的下载地址导出到aria2/aria2-rpc，支持YAAW。<br><a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">https://github.com/acgotaku/BaiduExporter</a></p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[BananaPI]搭建LNMP服务器]]></title>
+      <url>http://www.huoma.net/2015/06/13/bananapi-lnmp/</url>
+      <content type="html"><![CDATA[<p>在香蕉派上搭建一个<strong>nginx+php+mysql</strong>的服务器，作为网站的调试备份。</p>
+<p><strong>1.安装nginx+php+mysql</strong></p>
+<blockquote>
+<p>sudo apt-get install **nginx php5-fpm php5-cli php5-curl php5-gd php5-mcrypt php5-mysql php5-cgi mysql-server</p>
+<p>**<br>如果怕出错的话可以把它们分拆开，一个个的安装，不然发生错误后处理起来非常麻烦。像这样有规律的，一条条的输入也不麻烦，按下向上键，只要改后面三四个字母就OK了。<br>sudo apt-get install nginx</p>
+<p>sudo apt-get install php5-fpm</p>
+<p>….<br>安装到最后一个mysql-server时，会提示输入密码，这是Mysql的管理密码，用户名是：root</p>
+</blockquote>
+<p><strong>2.配置</strong><br><strong>服务器：</strong>/etc/nginx/nginx.conf</p>
+<blockquote>
+<p>#文件开始部分</p>
+<p>user www-data;</p>
+<p>worker<em>processes 1; <span style="color: #999999;"></span></em># 修改这里_</p>
+<p>pid /var/run/nginx.pid;</p>
+<p>events {</p>
+<p>worker<em>connections 64; <span style="color: #999999;"></span></em># 修改这里_</p>
+<h1 id="multi-accept-on"><a href="#multi-accept-on" class="headerlink" title="multi_accept on;"></a>multi_accept on;</h1><p>}<br>继续向后找到gzip，找到带<span style="color: #ff0000;">gzip_</span>前缀的，把前面的#删除<br>gzip on;</p>
+<p>gzip_disable “msie6”;</p>
+<p>gzip_vary on;</p>
+<p>gzip_proxied any;</p>
+<p>gzip_comp_level 6;</p>
+<p>gzip_buffers 16 8k;</p>
+<p>gzip_http_version 1.1;</p>
+<p>gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;<br><strong>默认文件：</strong>/etc/nginx/sites-enabled/default<br>server {</p>
+<p>listen 80; ## listen for ipv4; this line is default and implied</p>
+<p>#listen [::]:80 default_server ipv6only=on; ## listen for ipv6</p>
+<p>root /home/nono/server/www; <em><span style="color: #999999;"># 网站根目录</span></em></p>
+<p>index index.php index.html index.htm; <span style="color: #999999;"><em># 默认首页文件的文件名，越靠前，优先级越高</em></span></p>
+<h1 id="Make-site-accessible-from-http-localhost"><a href="#Make-site-accessible-from-http-localhost" class="headerlink" title="Make site accessible from http://localhost/"></a>Make site accessible from <a href="http://localhost/" target="_blank" rel="external">http://localhost/</a></h1><p>server_name localhost;<br>在这下面添加一段代码<br>&nbsp;</p>
+<p>if (!-e $request_filename) {</p>
+<p>rewrite ^(.*)$ /index.php$1 last;</p>
+<p>}<br>然后找到这句<strong>#location ~ .php$ {，</strong>并将这段对照修改成如下内容</p>
+<p>#location ~ .php$ {</p>
+<p>location ~ .<em>.php(\/.</em>)*$ {</p>
+<h1 id="fastcgi-split-path-info-php"><a href="#fastcgi-split-path-info-php" class="headerlink" title="fastcgi_split_path_info ^(.+.php)(/.+)$;"></a>fastcgi_split_path_info ^(.+.php)(/.+)$;</h1><h1 id="NOTE-You-should-have-“cgi-fix-pathinfo-0-”-in-php-ini"><a href="#NOTE-You-should-have-“cgi-fix-pathinfo-0-”-in-php-ini" class="headerlink" title="# NOTE: You should have “cgi.fix_pathinfo = 0;” in php.ini"></a># NOTE: You should have “cgi.fix_pathinfo = 0;” in php.ini</h1><p>#</p>
+<h1 id="With-php5-cgi-alone"><a href="#With-php5-cgi-alone" class="headerlink" title="# With php5-cgi alone:"></a># With php5-cgi alone:</h1><h1 id="fastcgi-pass-127-0-0-1-9000"><a href="#fastcgi-pass-127-0-0-1-9000" class="headerlink" title="fastcgi_pass 127.0.0.1:9000;"></a>fastcgi_pass 127.0.0.1:9000;</h1><h1 id="With-php5-fpm"><a href="#With-php5-fpm" class="headerlink" title="# With php5-fpm:"></a># With php5-fpm:</h1><p>fastcgi_pass unix:/var/run/php5-fpm.sock;</p>
+<p>fastcgi_index index.php;</p>
+<p>include fastcgi_params;</p>
+<p>set $path_info “”;</p>
+<p>set $real_script_name $fastcgi_script_name;</p>
+<p>if ($fastcgi_script_name ~”^(.+?.php)(/.+)$”) {</p>
+<p>set $real_script_name $1;</p>
+<p>set $path_info $2;</p>
+<p>}</p>
+<p>fastcgi_param SCRIPT_FILENAME $document_root$real_script_name;</p>
+<p>fastcgi_param SCRIPT_NAME $real_script_name;</p>
+<p>fastcgi_param PATH_INFO $path_info;</p>
+<p>}<br><strong>修改php的配置文件</strong>/etc/php5/fpm/php.ini<br>memory<em>limit = 128M   </em><span style="color: #999999;">#把数字改成32</span>_</p>
+<p><span style="color: #ff0000;">;</span>cgi.fix<em>pathinfo=1   </em><span style="color: #999999;">#去掉</span>_<strong><span style="color: #ff0000;">;</span></strong></p>
+<p>upload_max<em>filesize = 2M  <span style="color: #999999;"></span></em> #上传文件限制_<br><strong>修改：</strong>/etc/php5/fpm/php-fpm.conf<br><span style="color: #ff0000;">;</span> process.max = 128 <span style="color: #999999;">#去掉前面的<span style="color: #ff0000;"><strong> ; </strong></span>，将数值改成4</span><br><strong>修改mysql数据库</strong> /etc/mysql/my.cnf<br>bind-address = 127.0.0.1<br>在这句前面加上#，注释掉这句，这样局域网内的Mysql客户端软件就能连接了。但是实验的结果并不是这样的，还有一步要做，执行下面的命令，mysql&gt;后面的每天命令要”;”结尾<br>mysql -u root –p</p>
+<p>mysql&gt;use mysql;</p>
+<p>mysql&gt; GRANT ALL PRIVILEGES ON <em>.</em> TO ‘root’@’<span style="color: #ff0000;">192.168.11.0</span>‘ IDENTIFIED BY ‘<span style="color: #ff0000;"><em>登陆密码</em></span>‘ WITH GRANT OPTION;</p>
+<p><span style="color: #999999;"><em>#添加一个192.168.1.100客户端权限，也可以使用%</em></span><span style="color: #999999;"><em>，对所有人开放<span style="color: #999999;">，但是出于安全考虑，</span>__不推荐</em></span></p>
+<p>mysql&gt; flush privileges;</p>
+<p>mysql&gt; exit; <span style="color: #808080;"><em>#退出mysql</em></span><br><strong>修改Mysql数据存放目录</strong><br>datadir = /var/lib/mysql<br>这个根据个人喜好，不想折腾就默认不用修改，如果改了，要将原先目录下的文件复制到新的目录下。</p>
+</blockquote>
+<p><strong>重启服务</strong></p>
+<blockquote>
+<p>sudo service nginx restart</p>
+<p>sudo service php5-fpm restart</p>
+<p>sudo service mysql restart</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[BananaPI]香蕉派忘记密码了怎么办]]></title>
+      <url>http://www.huoma.net/2015/06/08/bananapi-password/</url>
+      <content type="html"><![CDATA[<p>又开始新的折腾。今天重新安装了一个<a href="http://forum.lemaker.org/thread-2037-3-1-3.html" target="_blank" rel="external"><span style="text-decoration: underline;">Lubuntu v3.1.x + XBMC</span></a>的系统，一个镜像文件就要9G多的空间。安装好后一切都能正常使用，可是用putty登陆就要使用用户名跟密码，试了常用的几个默认密码都不行。</p>
+<p>试了几个方法终于搞定了：</p>
+<h2 id="修改启动文件："><a href="#修改启动文件：" class="headerlink" title="修改启动文件："></a>修改启动文件：</h2><p><strong>1</strong>.打开内存卡分区，就是能被windows认出的那个分区。打开uEnv.txt文件:</p>
+<blockquote>
+<p><em><strong>最后一行原文大概是这样的</strong></em></p>
+<p>dwc_otg.lpm_enable=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait<br><strong>在该行末尾加入 <span style="color: #ff0000;">init=/bin/sh</span></strong></p>
+<p>dwc_otg.lpm_enable=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait <span style="color: #ff0000;">init=/bin/sh</span><br><strong>2</strong>.输入：<strong>passwd root  </strong>输入两次密码。<br><strong>3</strong>.输入：<br><strong>sync</strong></p>
+<p><strong>exec /sbin/init</strong><br>可能会重启吧。<br><strong>4</strong>.输入<br><strong>sudo halt</strong><br><strong>5</strong>.关机，重新修改uEnv.txt文件，把”init=/bin/sh” 删除.</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[BananaPI]给香蕉派挂载移动硬盘或U盘]]></title>
+      <url>http://www.huoma.net/2015/06/06/bananapi-disk/</url>
+      <content type="html"><![CDATA[<p><strong>1.查询硬盘分区</strong><br><strong>fdisk -l   </strong><span style="color: #808080;"><em>（-l是小写的L)
+</em></span>显示结果：<br>/dev/mmc<strong>**</strong>是香蕉派系统的SD卡分区<br>/dev/sda1 是U盘分区</p>
+<p><strong>2.安装分区格式支持模块</strong></p>
+<p>sudo apt-get install ntfs-3g   <em>#NTFS支持，这样就能读写NTFS格式硬盘</em><br>sudo apt-get install exfat-fuse <em>#exFAT格式支持</em></p>
+<p><strong>3.创建一个目录</strong><br>mkdir /mnt/disk1/</p>
+<p><strong>4.将目录作为挂载点挂载硬盘
+</strong>mount -t auto /dev/sda1 /mnt/disk1/<strong>
+</strong></p>
+<p><strong>5.编辑 /etc/fstab 文件,在添加到末尾（根据格式选择一行）</strong></p>
+<blockquote>
+<ul>
+<li>exFAT格式 :</li>
+</ul>
+<p>/dev/sda1 /mnt/disk1 <span style="color: #0000ff;">vfat rw</span>,defaults 0 0</p>
+<ul>
+<li>EXT4格式 :</li>
+</ul>
+<p>/dev/sdb1 /mnt/disk1 <span style="color: #0000ff;">ext4</span> defaults 0 0</p>
+<ul>
+<li>NTFS格式</li>
+</ul>
+<p>/dev/sda1 /mnt/disk1 <span style="color: #0000ff;">ntfs-3g</span> defaults,noexec,umask=0000 0 0</p>
+<ul>
+<li>FAT32格式</li>
+</ul>
+<p>/dev/sda1 /mnt/disk1 <span style="color: #0000ff;">auto</span> defaults,noexec,umask=0000 0 0<br>&nbsp;</p>
+</blockquote>
+<p><strong>挂载GPT硬盘</strong><br>使用fdisk -l查看的时候，2TB的硬盘只显示一个分区，后面的文件系统显示的是GPT，没办法查看其它的分区。<br>1.使用命令查看其它分区，记住前面的Number、File system<br>parted /dev/sda print<br><strong>2.挂载分区</strong><br>mount -t xfs /dev/sda2 /mnt/test<br><span style="color: #999999;"><em>xfs:是File System显示的</em></span><br><span style="color: #999999;"><em>/dev/sad2:硬盘分区</em></span><br><span style="color: #999999;"><em>/mnt/test：挂载点</em></span></p>
+<p>&nbsp;</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[BananaPI]用DNSMasq搭建DNS缓存服务器]]></title>
+      <url>http://www.huoma.net/2015/06/06/bananapi-dnsmasq/</url>
+      <content type="html"><![CDATA[<p>以前发过《<a href="http://www.huoma.net/archives/openwrt_dnsmasq/">[OpenWRT]利用dnsmasq来实现广告过滤</a>》,正好有文章说可以用它替换isc-dhcp-server作为DHCP与DNS的服务器，所以就用它来搭建一个DNS服务器，再实现广告过滤吧。</p>
+<p><strong>1.安装</strong><br>sudo apt-get install dnsmasq</p>
+<p><strong>2.修改/etc/dnsmasq.conf </strong></p>
+<blockquote>
+<p>listen-address=127.0.0.1</p>
+<p>interface=wlan0    #无线网卡</p>
+<p>bind-interfaces</p>
+<p>except-interface=eth0</p>
+<p>strict-order</p>
+<p>cache-size=2048</p>
+<p>dhcp-range=192.168.10.50,192.168.10.150,12h    #分配的IP段</p>
+<p>dhcp-option=3,192.168.10.1      #网关</p>
+<p>dhcp-option=6,192.168.10.1,8.8.8.8   #DNS<br><strong>3.重启DNSMasq</strong></p>
+</blockquote>
+<p>sudo /etc/init.d/dnsmasq restart</p>
+<p>——-上面是DHCP部分。</p>
+<p>下面将介绍的是DNS解析本地缓存，以加快网站访问速度。<br><strong>1.修改/etc/dnsmasq.conf
+</strong></p>
+<p>加入一行：resolv-file=/etc/resolv.dnsmasq.conf</p>
+<p><strong>2.打开/etc/resolv.dnsmasq.conf，加入：</strong></p>
+<p>nameserver 127.0.0.1</p>
+<p><strong>3.编辑 /etc/dhcp/dhclient.conf</strong></p>
+<p>#prepend domain-name-servers 127.0.0.1</p>
+<p>删除#，去掉注释，这么做的目的是为了在使用自动连接时，能在/etc/resolv.conf文件的第一行添加上“nameserver 127.0.0.1”，这样，dns缓存依然有效;</p>
+<p><strong>4.编辑 /etc/ppp/peers/dsl-provider 或者 provider</strong></p>
+<p>usepeerdns</p>
+<p>删除#，去掉注释，以防resolv.conf的设置被pppoe复盖</p>
+<p><strong>5.新建执行文件 /usr/bin/myap</strong></p>
+<blockquote>
+<p>#! /bin/sh</p>
+<p><strong># 为无线添加路由规则</strong></p>
+<p>iptables -F</p>
+<p>iptables -X</p>
+<p>iptables -t nat -F</p>
+<p>iptables -t nat -X</p>
+<p>iptables -t nat -A POSTROUTING -s 192.168.10.1/8 -o eth0 -j MASQUERADE</p>
+<p>iptables -A FORWARD -s 192.168.10.1/8 -o eth0 -j ACCEPT</p>
+<p>iptables -A FORWARD -d 192.168.10.1/8 -m conntrack –ctstate ESTABLISHED,RELATED -i eth0 -j ACCEPT</p>
+<p><strong>#dnsmasq与named一般情况下bind的named会占了53端口</strong>，</p>
+<p><strong># 然后dnsmasq会启动不了，所以我用killall named来杀了named再启动dnsmasq。</strong></p>
+<p>killall named</p>
+<p>killall hostapd</p>
+<p>ifconfig wlan0 192.168.10.1</p>
+<p>#“-B”后台运行,之后的hostapd.conf需要指名路径.</p>
+<p>hostapd -B /etc/hostapd.conf</p>
+<p>/etc/init.d/dnsmasq restart</p>
+<h1 id="dnsmasq启动后会出现电脑突然上不了网，"><a href="#dnsmasq启动后会出现电脑突然上不了网，" class="headerlink" title="dnsmasq启动后会出现电脑突然上不了网，"></a>dnsmasq启动后会出现电脑突然上不了网，</h1><h1 id="因为dnsmasq更改了-etc-resolv-conf的原因。可以在-etc-resolv-conf加一行"><a href="#因为dnsmasq更改了-etc-resolv-conf的原因。可以在-etc-resolv-conf加一行" class="headerlink" title="因为dnsmasq更改了/etc/resolv.conf的原因。可以在/etc/resolv.conf加一行"></a>因为dnsmasq更改了/etc/resolv.conf的原因。可以在/etc/resolv.conf加一行</h1><h1 id="nameserver-x-x-x-x"><a href="#nameserver-x-x-x-x" class="headerlink" title="nameserver x.x.x.x"></a>nameserver x.x.x.x</h1><p><strong>#填入DNS服务器地址，根据自己的情况修改。</strong></p>
+<p>echo “nameserver 127.0.0.1” &gt;&gt; /etc/resolv.conf<br><strong>#测试，</strong>执行两次就能看出查询时间的差异了：</p>
+</blockquote>
+<p>dig www.huoma.net</p>
+<p><strong>※ 广告过滤部分</strong>就使用《<a href="http://www.huoma.net/archives/openwrt_dnsmasq/">[OpenWRT]利用dnsmasq来实现广告过滤</a>》的方法，就不再写了。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[BananaPI]香蕉派拨号上网]]></title>
+      <url>http://www.huoma.net/2015/06/06/bananapi-pppoe/</url>
+      <content type="html"><![CDATA[<p>1.安装PPPOEconf</p>
+<p>sudo apt-get install pppoeconf</p>
+<p>2.配置拨号信息，用来拨号的网卡连上猫，执行命令<br>sudo pppoeconf</p>
+<blockquote>
+<ol>
+<li>ALL DEVICES FOUND 列出所有搜索到的网卡，确认是否正确</li>
+</ol>
+<p>正确选[YES]</p>
+<ol>
+<li>OKAY TO MODIFY 是否覆盖旧配置文件</li>
+</ol>
+<p>选[YES]</p>
+<ol>
+<li>POPULAR OPTIONS 选[YES]</li>
+<li>ENTER USERNAME 拨号用户名</li>
+<li>ENTER PASSWORD 拨号密码</li>
+<li>USE PEER DNS是否使用网络提供商的域名服务器[DNS Server]</li>
+</ol>
+<p>选[YES]</p>
+<ol>
+<li>LIMITED MSS PROBLEM 限制MMS大小</li>
+<li>DONE 设置完成</li>
+</ol>
+<p>选[YES]</p>
+<ol>
+<li>ESTABLISH A CONNECTION是否启用连接</li>
+</ol>
+<p>选[YES]</p>
+<ol>
+<li>CONNECTION INITIATED 连接完成</li>
+</ol>
+</blockquote>
+<p><strong> TIP：</strong>相关命令<strong>
+</strong>开始拨号:pon dsl-provider<br>断开网络:poff<br>显示日志:plog</p>
+<p><strong>3.启动时自动拨号</strong><em>/etc/network/interfaces</em></p>
+<blockquote>
+<h1 id="added-by-pppoeconf"><a href="#added-by-pppoeconf" class="headerlink" title="added by pppoeconf"></a>added by pppoeconf</h1><p>auto eth0</p>
+<p>iface eth0 inet manual</p>
+<p>pre-up /sbin/ifconfig eth0 up</p>
+<p>auto dsl-provider</p>
+<p>iface dsl-provider inet ppp</p>
+<p>provider dsl-provider<br>&nbsp;</p>
+</blockquote>
+<p><strong>4.解决自动断线问题，/etc/ppp/options</strong></p>
+<p>lcp-echo-interval 30 #状态确认频率<br>lcp-echo-failure 4 #改成15</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[BananaPI]把香蕉派变智能无线路由器]]></title>
+      <url>http://www.huoma.net/2015/06/03/bananapi-router/</url>
+      <content type="html"><![CDATA[<p>首先需要一个香蕉派支持驱动的无线网卡，最后完成的结果就是把香蕉派连接网络通过无线网卡共享出来。</p>
+<p>使用<strong>ifconfig</strong>命令，能直接看到<span style="text-decoration: underline;">wlan0</span>，就说明无线网卡正常加载了。</p>
+<h2 id="一、AP热点-hostapd-服务"><a href="#一、AP热点-hostapd-服务" class="headerlink" title="一、AP热点 hostapd 服务"></a>一、AP热点 hostapd 服务</h2><p><strong>1.安装hostapd
+</strong>sudo apt-get install hostapd</p>
+<p><strong>2.配置</strong>/etc/default/hostapd<br>_找到#DAEMON<em>CONF=””，修改为：</em><br>DAEMON_CONF=”/etc/hostapd/hostapd.conf”</p>
+<p><strong>3.编辑</strong>/etc/hostapd/hostapd.conf</p>
+<blockquote>
+<h1 id="Basic-configuration"><a href="#Basic-configuration" class="headerlink" title="Basic configuration"></a>Basic configuration</h1><p>interface=wlan0</p>
+<p>ssid=_SSID<em>NAME</em></p>
+<p>channel=6</p>
+<p>hw_mode=g</p>
+<p>wpa=2</p>
+<p>wpa_passphrase=<em>8位以上的密码</em></p>
+<p>wpa_key_mgmt=WPA-PSK</p>
+<p>wpa_pairwise=TKIP</p>
+<p>rsn_pairwise=CCMP<br><strong>4.修改/etc/network/interfaces 设置无线网卡静态IP</strong><br>allow-hotplug wlan0</p>
+<p>iface wlan0 inet static</p>
+<p>address 192.168.10.1</p>
+<p>netmask 255.255.255.0</p>
+<p>pre-up iptables-restore &lt; /root/nat.rule   #开机自启动iptables规则<br><strong>5.修改/etc/resolv.conf</strong><br>nameserver 192.168.10.1<br><strong>6.打开网卡转发，将/etc/sysctl.conf的下面一行去掉注释
+</strong><br>net.ipv4.ip_forward=1<br><strong>7.执行下列命令，热点设置完成，就能搜索到这个WIFI信号了</strong><br>sudo hostapd /etc/hostapd/hostapd.conf -B<br>sudo ifconfig wlan0 192.168.10.1 netmask 255.255.255.0</p>
+</blockquote>
+<h2 id="二、配置iptables防火墙规则"><a href="#二、配置iptables防火墙规则" class="headerlink" title="二、配置iptables防火墙规则"></a>二、配置iptables防火墙规则</h2><blockquote>
+<p>sudo iptables -t nat -A POSTROUTING -o ppp0 -j MASQUERADE</p>
+<p>sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</p>
+<p>sudo iptables-save &gt; /root/nat.rule            #保存规则，自动启用</p>
+</blockquote>
+<h2 id="三、ip地址自动分配-dhcpd服务"><a href="#三、ip地址自动分配-dhcpd服务" class="headerlink" title="三、ip地址自动分配 dhcpd服务"></a>三、ip地址自动分配 dhcpd服务</h2><p><span style="color: #0000ff;">可以用DNSMasq替换这个部分，详细见</span>《<a href="http://www.huoma.net/archives/bananapi_dnsmasq/">用DNSMasq搭建DNS缓存服务器</a>》</p>
+<p><strong>1.安装</strong>isc-dhcp-server<br>sudo apt-get install isc-dhcp-server</p>
+<p><strong>2.修改 /etc/default/isc-dhcp-server文件，将wlan0配置成为DHCP用的网口：</strong><br><em> 不然会“<span style="color: #ff0000;">[FAIL] Starting ISC DHCP server: dhcpd</span>”的错误。</em></p>
+<blockquote>
+<p>INTERFACES=”wlan0”<br><strong>3.配置</strong>/etc/dhcp/dhcpd.conf，<strong>在末尾添加</strong><br>subnet 192.168.10.0 netmask 255.255.255.0 {</p>
+<p>range 192.168.10.10 192.168.10.100; <em>#分配给客户端的ip范围</em></p>
+<p>option routers 192.168.10.1;<em>#网关地址</em></p>
+<p>option broadcast-address 192.168.10.255;<em> #广播地址 注意和上面的子网掩码255.255.255.0 对应</em></p>
+<p>option domain-name-servers 192.168.10.1; <em>#DNS服务器地址</em></p>
+<p>default-lease-time 600;<em> #租约时间 到期后客户端需要重新发起请求获取ip地址（可以续约原来的ip）</em></p>
+<p>max-lease-time 7200;</p>
+<p>}<br><strong> 4.执行命令：</strong><br>sudo service isc-dhcp-server start</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[BananaPI]开始折腾香蕉派]]></title>
+      <url>http://www.huoma.net/2015/06/03/bananapi/</url>
+      <content type="html"><![CDATA[<p>不小心烧了一下入手了一个香蕉派，果然是很深的坑啊。不想折腾的要慎重。相关参数可以百度一下。</p>
+<p><a href="http://www.lemaker.org/resources/29-4/%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6.html" target="_blank" rel="external">香蕉派网站</a>提供的可安装系统有：Android、Lubuntu、Raspbian、基于Debian的Bananian Linux（类似树莓派的Raspbian）、Kali Linux、OpenWrt、OpenSUSE、Fedora、ArchLinux等。</p>
+<p>花了几天试了Android、OpenWrt、Fedora、Raspbian、Bananian只有后面两种安装成功。</p>
+<p>决定就用Bananian，相关安装方法<a href="http://www.lemaker.org/resources/29-5/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97.html" target="_blank" rel="external">进这里</a></p>
+<p>使用HDMI连接电视作为显示器，安装完成碰见输入用户名跟密码，但是手上没有键盘，只能从配置文件入手。</p>
+<p><em>用户名与密码在相关的下载页面 ”串口登陆“看到。</em></p>
+<p>系统文件安装在linux分区中，在windows下看不见，必须安装《<a href="https://www.paragon-software.com/home/extfs-windows/" target="_blank" rel="external">Paragon ExtFS for Windows</a>》软件才能看到。</p>
+<blockquote>
+<p><span style="color: #0000ff;"><strong>修改/etc/inittab</strong></span></p>
+<p>#1:2345:respawn:/sbin/getty –noclear 38400 tty1</p>
+<p>1:2345:respawn:/bin/login -f root tty1 &lt;/dev/tty1 &gt;/dev/tty1 2&gt;&amp;1</p>
+<p><span style="color: #808080;"><em>将第一行注释掉，新增第二行命令</em></span></p>
+<p><span style="color: #0000ff;"><strong>修改/etc/rc.local</strong></span>，在<span style="color: #ff0000;"><em>exit 0 </em></span>前加入</p>
+<p>su root -c startx<br>现在就能自动登陆了。</p>
+</blockquote>
+<p><strong>TIP：</strong>如果碰见系统黑屏或重启，可能是电压不足，可以试试把USB全卸了。</p>
+<hr>
+<p>把香蕉派连上路由器，用putty通过SSH就可以连接香蕉派了。<br>香蕉派第一次使用的时候需要进行一个简单的配置，在命令行模式下运行以下命令：</p>
+<p>$<strong>raspi-config</strong></p>
+<ol>
+<li>Expand Filesystem 扩展文件系统。</li>
+<li>Change User Password 改变默认密码，没用，改不了。</li>
+<li>Enable Boot to Desktop/Scratch 启动时进入的环境选择（选择图像、字符控制台）</li>
+<li>Internationalisation Options 国际化选项，可以更改默认语言<br>Change Locale  语言和区域设置，建议不要改，默认英文就好。<br>Change Timezone 设置时区，如果不进行设置，时间就显示不正常。<br>选择Asia（亚洲）再选择Chongqing（重庆）即可<br>Change Keyboard Layout  改变键盘布局</li>
+<li>Enable Camera  启动摄像头模块</li>
+<li>Add to Rastrack  把你的的地理位置添加到一个全世界开启此选项的地图，建议还是不要开了，免得被跟踪。</li>
+<li>Overclock<br>None 不超频，运行在700Mhz，核心频率250Mhz，内存频率400Mhz，不增加电压<br>Modest 适度超频，运行在800Mhz，核心频率250Mhz，内存频率400Mhz，不增加电压<br>Medium 中度超频，运行在900Mhz，核心频率250Mhz，内存频率450Mhz，增加电压2<br>High 高度超频，运行在950Mhz，核心频率250Mhz，内存频率450Mhz，增加电压6<br>Turbo 终极超频，运行在1000Mhz，核心频率500Mhz，内存频率600Mhz，增加电压6</li>
+<li>Advanced Options 高级设置<br>Overscan 是否让屏幕内容全屏显示<br>Hostname 在网上邻居或者路由器能看到的主机名称<br>Memory Split 内存分配，选择给GPU多少内存<br>SSH 是否运行SSH登录，建议开此选项。<br>SPI 是否默认启动SPI内核驱动，新手就不用管了。<br>Audio 选择声音默认输出到模拟口还是HDMI口<br>Auto 自动选择<br>Force 3.5mm (‘headphone’) jack强制输出到3.5mm模拟口<br>Force HDMI 强制输出到HDMI<br>Update 把raspi-config这个工具自动升级到最新版本</li>
+<li>About raspi-config 关于raspi-config的信息。<br><strong>1.设置用户密码</strong>：passwd</li>
+</ol>
+<p><strong>2.安装sudo命令</strong>：apt-get install sudo</p>
+<p><strong>3.修改软件源</strong>/etc/apt/sources.list<br><em>注释掉原来的几个，然后添加中科大的源</em></p>
+<blockquote>
+<p>_#中国科学技术大学</p>
+<p>_deb <a href="http://mirrors.ustc.edu.cn/debian/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/debian/</a> wheezy main non-free contrib</p>
+<p>deb-src <a href="http://mirrors.ustc.edu.cn/debian/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/debian/</a> wheezy main non-free contrib</p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/debian-security/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/debian-security/</a> wheezy/updates main contrib non-free</p>
+<p>deb-src <a href="http://mirrors.ustc.edu.cn/debian-security/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/debian-security/</a> wheezy/updates main contrib</p>
+<p>#日本debian</p>
+<p>deb <a href="http://ftp.jp.debian.org/debian/" target="_blank" rel="external">http://ftp.jp.debian.org/debian/</a> wheezy main non-free contrib</p>
+<p>deb-src <a href="http://ftp.jp.debian.org/debian/" target="_blank" rel="external">http://ftp.jp.debian.org/debian/</a> wheezy main non-free contrib<br><strong>4.更新系统</strong></p>
+</blockquote>
+<p>apt-get update<br>apt-get upgrade</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[openwrt]安装aria2脱机下载]]></title>
+      <url>http://www.huoma.net/2015/05/10/openwrt-aria2/</url>
+      <content type="html"><![CDATA[<p>Aria2支持HTTP/FTP/BT/磁力链等格式文件下载，并支持多线程或从多个地址同时时下载同一个文件等。</p>
+<p>同时还支持迅雷/百度/旋风离线下载，不过都需要会员才能使用。</p>
+<p>这些功能已经能满足大部分的使用要求了。</p>
+<a id="more"></a>
+<p>操作步骤</p>
+<hr>
+<ol>
+<li>更新软件列表<br>opkg update</li>
+<li>安装aria2<br>opkg install aria2</li>
+<li>在/etc/目录下新建目录aria2<br>mkdir /etc/aria2/</li>
+<li>生成aria2.session文件（由于保存aria2运行记录）<br>touch /etc/aria2/aria2.session</li>
+<li><p>编辑aria2.conf文件（配置文件）<br>vi /etc/aria2/aria2.conf</p>
+<blockquote>
+<p><strong>#文件保存目录自行修改</strong></p>
+<p><strong>dir=/mnt/download</strong></p>
+<p><strong>disable-ipv6=true</strong></p>
+<p><strong>#打开rpc的目的是为了给web管理端用</strong></p>
+<p><strong>enable-rpc=true</strong></p>
+<p><strong>rpc-allow-origin-all=true</strong></p>
+<p><strong>rpc-listen-all=true</strong></p>
+<p><strong>#rpc-listen-port=6800</strong></p>
+<p><strong>continue=true</strong></p>
+<p><strong>input-file=/etc/aria2/aria2.session</strong></p>
+<p><strong>save-session=/etc/aria2/aria2.session</strong></p>
+<p><strong>max-concurrent-downloads=3</strong></p>
+</blockquote>
+</li>
+<li><p>测试配置文件（若没有报错即配置成功，可以按<strong><em>ctrl+c</em></strong>退出）<br>aria2c –conf-path=/etc/aria2/aria2.conf</p>
+</li>
+<li>让aria2开机启动<br>vi /etc/rc.load<br>在rc.load的<strong>exit 0</strong>的上一行添加：</li>
+</ol>
+<p><strong>aria2c –conf-path=/etc/aria2/aria2.conf -D</strong></p>
+<ol>
+<li>安装yaaw界面<a href="https://github.com/binux/yaaw" title="yaaw下载地址" target="_blank" rel="external">[下载地址]</a></li>
+</ol>
+<p>下载yaaw解压后将yaaw目录放置/www/<br>下即可访问：<a href="http://你的路由地址/yaaw/" target="_blank" rel="external">http://你的路由地址/yaaw/</a></p>
+<p><strong>也可以安装Chrome浏览器扩展程序Yaaw，可以省去这步操作。</strong></p>
+<ol>
+<li>设置Yaaw<br>进入Setting界面<br>JSON-RPC Path：路由器地址:6800/jsonrpc<br>保存。<br>成功的话再次打开界面User Agent会出现aria2的版本，Base Dir保持位置等信息。<br>完成以上操作就可以进行离线下载了。</li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[PHP正则表达式片段]]></title>
+      <url>http://www.huoma.net/2015/04/26/pregmatch/</url>
+      <content type="html"><![CDATA[<p>正则表达式经常要用.这里收集一些代码片段，以备不时之需.<a id="more"></a></p>
+<p><strong>验证域名</strong></p>
+<blockquote>
+<p>$url = “<a href="http://www.huoma.net/">http://www.huoma.net/</a>“;</p>
+<p>if (preg<em>match(‘/^(http|https|ftp)://([A-Z0-9][A-Z0-9</em>-]<em>(?:.[A-Z0-9][A-Z0-9_-]</em>)+):?(d+)?/?/i’, $url)) {</p>
+<div style="margin-left: 50px;">echo “Your url is ok.”;</div>
+
+<p>} else {</p>
+<div style="margin-left: 50px;">echo “Wrong url.”;</div>
+
+<p>}<br><strong>正文中词语标亮</strong><br>$text = “Sample sentence from KomunitasWeb, regex has become popular in web programming. Now we learn regex. According to wikipedia, Regular expressions (abbreviated as regex or regexp, with plural forms regexes, regexps, or regexen) are written in a formal language that can be interpreted by a regular expression processor”;</p>
+<p>$text = preg_replace(“/b(regex)b/i”, ‘&lt;span style=”background:#5fc9f6”&gt;1&lt;/span&gt;’, $text);</p>
+<p>echo $text;<br><strong>HTML中获取所有图片</strong><br>$images = array();</p>
+<p>preg_match_all(‘/(img|src)=(“|’)[^”‘&gt;]+/i’, $data, $media);</p>
+<p>unset($data);</p>
+<p>$data=preg_replace(‘/(img|src)(“|’|=”|=’)(.*)/i’,”$3”,$media[0]);</p>
+<p>foreach($data as $url)</p>
+<p>{</p>
+<div style="margin-left: 50px;">$info = pathinfo($url);<br><br>if (isset($info[‘extension’]))<br><br>{<br><br><div style="margin-left: 50px;">if (($info[‘extension’] == ‘jpg’) ||<br><br>($info[‘extension’] == ‘jpeg’) ||<br><br>($info[‘extension’] == ‘gif’) ||<br><br>($info[‘extension’] == ‘png’))<br><br>array_push($images, $url);</div>
+
+<p>}</p>
+<p></p></div><p></p>
+<p>}<br><strong>去除重复词语</strong><br>$text = preg_replace(“/s(w+s)1/i”, “$1”, $text);<br><strong>去除重复标点</strong><br>$text = preg_replace(“/s(w+s)1/i”, “$1”, $text);<br><strong>匹配XML/HTML 标签</strong><br>function get_tag( $tag, $xml ) {</p>
+<div style="margin-left: 50px;">$tag = preg_quote($tag);<br><br>preg_match_all(‘{&lt;’.$tag.’[^&gt;]<em>&gt;(.</em>?)&lt;/‘.$tag.’&gt;.’}’,<br><br><div style="margin-left: 50px;">$xml,<br><br>$matches,<br><br>PREG_PATTERN_ORDER);</div>
+
+<p>return $matches[1];</p>
+<p></p></div><p></p>
+<p>}<br><strong>匹配页面标题</strong><br>$fp = fopen(“<a href="http://www.huoma.net&quot;,&quot;r">http://www.huoma.net&quot;,&quot;r</a>“);</p>
+<p>while (!feof($fp) ){</p>
+<div style="margin-left: 50px;">$page .= fgets($fp, 4096);</div>
+
+<p>}</p>
+<p>$titre = eregi(“(.*)”,$page,$regs);</p>
+<p>echo $regs[1];</p>
+<p>fclose($fp);<br><strong>清除所有HTML标签</strong><br>$text = preg_replace</p>
+<div style="margin-left: 50px;">(<br><br>array(<br><br>// Remove invisible content<br><br>‘@&lt;head[^&gt;]<em>?&gt;.</em>?@siu’,<br><br>‘@&lt;style[^&gt;]<em>?&gt;.</em>?@siu’,<br><br>‘@&lt;script[^&gt;]<em>?.</em>?@siu’,<br><br>‘@&lt;object[^&gt;]<em>?.</em>?@siu’,<br><br>‘@&lt;embed[^&gt;]<em>?.</em>?@siu’,<br><br>‘@&lt;applet[^&gt;]<em>?.</em>?@siu’,<br><br>‘@&lt;noframes[^&gt;]<em>?.</em>?@siu’,<br><br>‘@&lt;noscript[^&gt;]<em>?.</em>?@siu’,<br><br>‘@&lt;noembed[^&gt;]<em>?.</em>?@siu’,<br><br>// Add line breaks before &amp; after blocks<br><br>‘@&lt;((br)|(hr))@iu’,<br><br>‘@ ‘@ ‘@ ‘@ ‘@ ‘@ ‘@ array(<br><br>‘ ‘, ‘ ‘, ‘ ‘, ‘ ‘, ‘ ‘, ‘ ‘, ‘ ‘, ‘ ‘, ‘ ‘,<br><br>“\n\$0”, “\n\$0”, “\n\$0”, “\n\$0”, “\n\$0”, “\n\$0”,<br><br>“\n\$0”, “\n\$0”,),$text<br><br>)</div>
+
+<p>// Remove all remaining tags and comments and return.</p>
+<p>$text = strip_tags( $text );</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[OpenWRT]利用dnsmasq来实现广告过滤]]></title>
+      <url>http://www.huoma.net/2015/04/21/openwrt-dnsmasq/</url>
+      <content type="html"><![CDATA[<p>各大智能路由器基本上都把广告过滤作为一个卖点，今天我们用OpenWRT来轻松的实现这个功能。</p>
+<p>首先我们来这只一下dnsmasq,其配置文件位于/etc/dnsmasq.conf</p>
+<p>可以用WinSCP打开并编辑它，在文件末尾添加 addn-hosts字段，比如如下</p>
+<blockquote>
+<p><strong> addn-hosts=/tmp/hosts</strong><br>保存，退出</p>
+</blockquote>
+<p><strong>下载过滤规则：</strong></p>
+<blockquote>
+<p>cd /tmp</p>
+<p>wget <a href="http://hostsx.googlecode.com/svn/trunk/hosts" target="_blank" rel="external">http://hostsx.googlecode.com/svn/trunk/hosts</a><br>也可以自己在/tmp目录下新建一个<strong>hosts</strong>文件，打开并添加如下规则：</p>
+<p>#优酷</p>
+<p>127.0.0.1 atm.youku.com</p>
+<p>127.0.0.1 Fvid.atm.youku.com</p>
+<p>127.0.0.1 html.atm.youku.com</p>
+<p>127.0.0.1 valb.atm.youku.com</p>
+<p>127.0.0.1 valf.atm.youku.com</p>
+<p>127.0.0.1 valo.atm.youku.com</p>
+<p>127.0.0.1 valp.atm.youku.com</p>
+<p>127.0.0.1 lstat.youku.com</p>
+<p>127.0.0.1 speed.lstat.youku.com</p>
+<p>127.0.0.1 urchin.lstat.youku.com</p>
+<p>127.0.0.1 stat.youku.com</p>
+<p>127.0.0.1 static.lstat.youku.com</p>
+<p>127.0.0.1 valc.atm.youku.com</p>
+<p>127.0.0.1 vid.atm.youku.com</p>
+<p>127.0.0.1 walp.atm.youku.com</p>
+<p>#百度：</p>
+<p>127.0.0.1 a.baidu.com</p>
+<p>127.0.0.1 baidutv.baidu.com</p>
+<p>127.0.0.1 bar.baidu.com</p>
+<p>127.0.0.1 c.baidu.com</p>
+<p>127.0.0.1 cjhq.baidu.com</p>
+<p>127.0.0.1 cpro.baidu.com</p>
+<p>127.0.0.1 drmcmm.baidu.com</p>
+<p>127.0.0.1 e.baidu.com</p>
+<p>127.0.0.1 eiv.baidu.com</p>
+<p>127.0.0.1 hc.baidu.com</p>
+<p>127.0.0.1 hm.baidu.com</p>
+<p>127.0.0.1 ma.baidu.com</p>
+<p>127.0.0.1 nsclick.baidu.com</p>
+<p>127.0.0.1 spcode.baidu.com</p>
+<p>127.0.0.1 tk.baidu.com</p>
+<p>127.0.0.1 union.baidu.com</p>
+<p>127.0.0.1 ucstat.baidu.com</p>
+<p>127.0.0.1 utility.baidu.com</p>
+<p>127.0.0.1 utk.baidu.com</p>
+<p>127.0.0.1 focu**aiduafp.allyes.com</p>
+<p>#奇艺</p>
+<p>127.0.0.1 afp.qiyi.com</p>
+<p>127.0.0.1 focu**aiduafp.allyes.com</p>
+<p>#CNTV</p>
+<p>127.0.0.1 a.cctv.com</p>
+<p>127.0.0.1 a.cntv.cn</p>
+<p>127.0.0.1 ad.cctv.com</p>
+<p>127.0.0.1 d.cntv.cn</p>
+<p>127.0.0.1 adguanggao.eee114.com</p>
+<p>127.0.0.1 cctv.adsunion.com</p>
+<p>#新浪视频</p>
+<p>127.0.0.1 dcads.sina.com.cn</p>
+<p>#pptv</p>
+<p>127.0.0.1 pp2.pptv.com</p>
+<p>#乐视</p>
+<p>127.0.0.1 pro.letv.com</p>
+<p>#搜狐高清</p>
+<p>127.0.0.1 images.sohu.com</p>
+<p>@HostsX 国内站点广告/视频类网站</p>
+<p>#CNTV</p>
+<p>127.0.0.1 a.cctv.com</p>
+<p>127.0.0.1 a.cntv.cn</p>
+<p>127.0.0.1 ad.cctv.com</p>
+<p>127.0.0.1 d.cntv.cn</p>
+<p>127.0.0.1 adguanggao.eee114.com</p>
+<p>127.0.0.1 cctv.adsunion.com</p>
+<p>#我乐网</p>
+<p>127.0.0.1 acs.56.com</p>
+<p>127.0.0.1 acs.agent.56.com</p>
+<p>127.0.0.1 acs.agent.v-56.com</p>
+<p>127.0.0.1 bill.agent.56.com</p>
+<p>127.0.0.1 bill.agent.v-56.com</p>
+<p>127.0.0.1 stat.56.com</p>
+<p>127.0.0.1 stat2.corp.56.com</p>
+<p>127.0.0.1 union.56.com</p>
+<p>127.0.0.1 uvimage.56.com</p>
+<p>127.0.0.1 v16.56.com</p>
+<p>#6间房</p>
+<p>127.0.0.1 pole.6rooms.com</p>
+<p>127.0.0.1 shrek.6.cn</p>
+<p>127.0.0.1 simba.6.cn</p>
+<p>127.0.0.1 union.6.cn</p>
+<p>#土豆网</p>
+<p>127.0.0.1 adextensioncontrol.tudou.com</p>
+<p>127.0.0.1 iwstat.tudou.com</p>
+<p>127.0.0.1 nstat.tudou.com</p>
+<p>127.0.0.1 stats.tudou.com</p>
+<p>127.0.0.1 <em>.p2v.tudou.com</em></p>
+<p>127.0.0.1 at-img1.tdimg.com</p>
+<p>127.0.0.1 at-img2.tdimg.com</p>
+<p>127.0.0.1 at-img3.tdimg.com</p>
+<p>127.0.0.1 adplay.tudou.com</p>
+<p>127.0.0.1 adcontrol.tudou.com</p>
+<p>127.0.0.1 stat.tudou.com</p>
+<p>#酷6网</p>
+<p>127.0.0.1 1.allyes.com.cn</p>
+<p>127.0.0.1 analytics.ku6.com</p>
+<p>127.0.0.1 gug.ku6cdn.com</p>
+<p>127.0.0.1 ku6.allyes.com</p>
+<p>127.0.0.1 ku6afp.allyes.com</p>
+<p>127.0.0.1 pq.stat.ku6.com</p>
+<p>127.0.0.1 st.vq.ku6.cn</p>
+<p>127.0.0.1 stat0.888.ku6.com</p>
+<p>127.0.0.1 stat1.888.ku6.com</p>
+<p>127.0.0.1 stat2.888.ku6.com</p>
+<p>127.0.0.1 stat3.888.ku6.com</p>
+<p>127.0.0.1 static.ku6.com</p>
+<p>127.0.0.1 v0.stat.ku6.com</p>
+<p>127.0.0.1 v1.stat.ku6.com</p>
+<p>127.0.0.1 v2.stat.ku6.com</p>
+<p>127.0.0.1 v3.stat.ku6.com</p>
+<p>#激动网</p>
+<p>127.0.0.1 86file.megajoy.com</p>
+<p>127.0.0.1 86get.joy.cn</p>
+<p>127.0.0.1 86log.joy.cn</p>
+<p>#天线视频</p>
+<p>127.0.0.1 casting.openv.com</p>
+<p>127.0.0.1 m.openv.tv</p>
+<p>127.0.0.1 uniclick.openv.com</p>
+<p>#迅雷看看屏蔽：</p>
+<p>127.0.0.1 mcfg.sandai.net</p>
+<p>127.0.0.1 biz5.sandai.net</p>
+<p>127.0.0.1 server1.adpolestar.net</p>
+<p>127.0.0.1 advstat.xunlei.com</p>
+<p>127.0.0.1 mpv.sandai.net<br>保存，重启dnsmasq服务：<br>/etc/init.d/dnsmasq restart</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[openwrt挂载U盘启动]]></title>
+      <url>http://www.huoma.net/2015/04/21/openwrt-upan/</url>
+      <content type="html"><![CDATA[<p>在Openwrt上安装必要的软件。可是当安装一些软件之后，存储空间不足了。这时候该怎么办呢？以4M的Flash为例，当大家讲Openwrt固件刷到自己的路由器后，大家会发现剩余的空间往往只剩下不到2M。当我们需要安装许多Openwrt本身不带的软件时，就会发现如此小的空间实在是太寒酸了。那么，该如何解决这样的问题呢？</p>
+<p>一、 添加USB扩展（注：本文默认大家的路由器是自带USB接口的，如果主板上本身不带USB接口的，可以考虑对硬件进行改动。由于我对于硬件不太懂，此处就不扩展讲解了，大家可以在网上寻求方法）</p>
+<p>1. 更新路由器软件源（注：路由器需要联网）</p>
+<blockquote>
+<p><strong>opkg update</strong><br>2. 添加USB支持<br>opkg install kmod-usb-core <em><strong>#可选</strong></em></p>
+<p>opkg install kmod-usb-uhci</p>
+<p>opkg install kmod-usb-storage</p>
+<p>opkg install kmod-usb2</p>
+<p>opkg install kmod-usb-ohci<br>3. 添加usb挂载，热插拔，以及boot支持<br>opkg install block-mount          #挂载</p>
+<p>opkg install block-hotplug       #热插拔</p>
+<p>opkg install block-extroot        #boot支持<br>此时，可以插上U盘测试一下。<br>ls -l /dev |grep sda<br>显示结果<br><em>root@Openwrt:/#ls -l /dev |grep sda</em></p>
+<p><em>brw-r–r–    1    root    root    8,    0    Jan    1    1970    sda</em><br>观察里面是否出现sda sda1 sda2 sda3等字样，sda说明是名为sda的设备，而sda1是它的第一个分区，后面依次类推。</p>
+</blockquote>
+<p>三、添加U盘启动</p>
+<p>将U盘格式化成ext3分区</p>
+<p>1. 将系统镜像移动到U盘第一个分区下：</p>
+<blockquote>
+<p>mkdir /tmp/root        　　　　　　     <em> #在/tmp目录下创建一个临时目录，用于放置系统镜像</em></p>
+<p>mount /dev/sda1 /mnt　　　　　　　<em>#将/dev/sda1 挂载到/mnt目录下</em></p>
+<p>mount -o bind / /tmp/root　　　　　<em>#将根目录”/“制作镜像，并将其挂载到“/tmp/root”下</em></p>
+<p>cp /tmp/root/* /mnt -a　　　　　　　<em>#将/tmp/root/ 目录下的所有内容复制到/mnt下，相当于将/mnt/root下的所有内容复制到/dev/sda1下</em></p>
+<p>umount /tmp/root    　　　　　　<em>　　#解除挂载 /tmp/root</em><br>2. 修改分区表</p>
+</blockquote>
+<p><strong>进入/etc/config/目录下，修改fstab文件</strong></p>
+<p>复制代码</p>
+<blockquote>
+<p>config global automount</p>
+<p>option from_fstab 1</p>
+<p>option anon_mount 1</p>
+<p>config global autoswap</p>
+<p>option from_fstab 1</p>
+<p>option anon_swap 0</p>
+<p>config mount 　　　　　　　　　　　　<em>#把sda1分区挂载为系统</em></p>
+<p>option        target        ‘/overlay’          <em> #*重要，一般无法从U盘启动都是缺少这条</em></p>
+<p>option device /dev/sda1　　　 <em>#需要挂载的设备，/dev/sda1</em></p>
+<p>option fstype ext3　　　　　　 <em>#文件系统格式ext3</em></p>
+<p>option options rw,sync　　　　<em>#读写，以及同步权限</em></p>
+<p>option enabled 1　　　　　　　<em> #是否需要启动</em></p>
+<p>option enabled<em>fsck 0　　　　</em> #是否需要启动检查_</p>
+<p>option is<em>rootfs　1　　　　　　</em>#是否作为根文件系统_</p>
+<p>config swap <em>#把sda2分区挂载为交换分区</em></p>
+<p>option device    /dev/sda2</p>
+<p>option enabled  1</p>
+<p>config mount</p>
+<p>option target /mnt      　　<em>#把sda3分区挂载在mnt文件夹上，作为存储网站和文件的地方</em></p>
+<p>option device /dev/sda3　　 #<em>需要挂载的设备，/dev/sda3 </em></p>
+<p>option fstype ext3 　　　　　<em>#文件系统格式ext3</em></p>
+<p>option options rw,sync 　　 #<em>读写、同步权限</em></p>
+<p>option enabled 1　　　　　　<em> #启动该设备</em><br>保存上述修改，执行如下命令使其生效<br>/etc/init.d/fstab enable</p>
+<p>/etc/init.d/fstab restart<br>重启设备，等待设备重启之后，进入shell，查看是否分区成功</p>
+</blockquote>
+<p><strong>df -h</strong>    <em>#查看系统挂载情况，检查文件系统的磁盘空间占用情况。</em></p>
+<p><strong>free</strong>      <em>#查看内存使用情况，可以用于查看swap是否正常启动</em></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[NEXX 乐携WT1520刷OPENWRT]]></title>
+      <url>http://www.huoma.net/2015/04/21/nexx-wt1520-openwrt/</url>
+      <content type="html"><![CDATA[<p>WT1520是一款超便携的11n迷你路由器，自身带有两个网口，同时具备一个USB口，可挂U盘，实现无线分享资料数据。但是功能的单一，内存太小，又不能真正的发挥出它的作用。拿到机子后，进入系统，里面的界面真的无法直视，果断放弃，寻找资料进行刷机。<a id="more"></a></p>
+<p>可供参考文章<br><a href="https://forum.openwrt.org/viewtopic.php?id=48481&amp;p=3" target="_blank" rel="external">https://forum.openwrt.org/viewtopic.php?id=48481&amp;p=3</a></p>
+<p>开始前先下载刷机文件<br><a href="https://app.box.com/s/jyz599nk2rerma62p4zz" target="_blank" rel="external">https://app.box.com/s/jyz599nk2rerma62p4zz</a>   【<a href="https://app.box.com/s/jyz599nk2rerma62p4zz" target="_blank" rel="external">mtd3.bin</a>】<br><a href="https://app.box.com/s/qlg7nyutoy92xaxstebz" target="_blank" rel="external">https://app.box.com/s/qlg7nyutoy92xaxstebz</a>    【<a href="https://app.box.com/s/qlg7nyutoy92xaxstebz" target="_blank" rel="external">openwrt-ramips-rt305x-nexx-wt1520-squashfs-sysupgrade.bin</a>】可以改短点的文件名</p>
+<p>首先要下载一个简单的WEB服务器，将上面两个文件放到，服务器根目录下，用<a href="http://127.0.0.1/mtd3.bin" target="_blank" rel="external">http://127.0.0.1/mtd3.bin</a>的方式能访问</p>
+<p>用USB连接路由器，打开本地连接，选择状态，点击支持，记下IP地址</p>
+<p>打开命令窗口，输入【粗体部分为要输入的命令】</p>
+<blockquote>
+<p><strong>telnet 192.168.8.1</strong><em>          192.168.8.1是默认的路由器管理页面访问地址</em></p>
+<p>Trying 192.168.8.1…</p>
+<p>Connected to 192.168.8.1.</p>
+<p>Escape character is ‘^]’.</p>
+<p>(none) login: <strong>nexxadmin</strong></p>
+<p>Password:<strong>y1n2inc.com0755</strong></p>
+<p>BusyBox v1.12.1 (2013-10-17 11:35:12 HKT) built-in shell (ash)</p>
+<p>Enter ‘help’ for a list of built-in commands.</p>
+<h1 id="cd-tmp"><a href="#cd-tmp" class="headerlink" title="cd /tmp/"></a><strong>cd /tmp/</strong></h1><h1 id="wget-http-192-168-8-2-8000-mtd3-bin-192-168-8-2：8000是刚刚记下的IP"><a href="#wget-http-192-168-8-2-8000-mtd3-bin-192-168-8-2：8000是刚刚记下的IP" class="headerlink" title="wget http://192.168.8.2:8000/mtd3.bin     192.168.8.2：8000是刚刚记下的IP"></a><strong>wget <a href="http://192.168.8.2:8000/mtd3.bin" target="_blank" rel="external">http://192.168.8.2:8000/mtd3.bin</a>     </strong><em><strong>192.168.8.2：8000</strong>是刚刚记下的IP</em></h1><p>&nbsp;<br>Connecting to 192.168.8.2:8000 (192.168.8.2:8000)</p>
+<p>mtd3.bin             100% |<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><em>*</em></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>|  3776k 00:00:00 ETA</p>
+<h1 id="mtd-write-erase-mtd3"><a href="#mtd-write-erase-mtd3" class="headerlink" title="mtd_write erase mtd3"></a><strong>mtd_write erase mtd3</strong></h1><p>getFileSize: No such file or directory</p>
+<p>Unlocking mtd3 …</p>
+<p>Erasing mtd3 …</p>
+<p>Erase char is 255</p>
+<h1 id="mtd-write-r-write-mtd3-bin-mtd3"><a href="#mtd-write-r-write-mtd3-bin-mtd3" class="headerlink" title="mtd_write -r write mtd3.bin mtd3"></a><strong>mtd_write -r write mtd3.bin mtd3</strong></h1><p>Unlocking mtd3 …</p>
+<p>Writing from mtd3.bin to mtd3 …  [w]<br>到整理刷新进度完成一半，路由器开始重启，注意路由器指示灯，现在路由器IP变成”10.10.10.123”<br>使用SSH软件连接，这里使用putty<br>打开Session，在HOST Name输入10.10.10.123,Connection Type选择SSH，Saved Sessions随便输个名字，点击Open<br>就会弹出命令窗口了</p>
+<h1 id="cd-tmp-1"><a href="#cd-tmp-1" class="headerlink" title="cd /tmp/"></a><strong>cd /tmp/</strong></h1><h1 id="wget-http-10-10-10-124-openwrt-rami-…-shfs-sysupgrade-bin"><a href="#wget-http-10-10-10-124-openwrt-rami-…-shfs-sysupgrade-bin" class="headerlink" title="wget http://10.10.10.124/openwrt-rami … shfs-sysupgrade.bin"></a><strong>wget <a href="http://10.10.10.124/openwrt-ramips-rt305x-nexx-wt1520-squashfs-sysupgrade.bin" target="_blank" rel="external">http://10.10.10.124/openwrt-rami … shfs-sysupgrade.bin</a></strong></h1><p><em>10.10.10.124是PC的新IP地址，用上面的方式查看地址，后面一长串是下载的第二个文件名了，现在知道改短的好处了吧</em></p>
+<h1 id="sysupgrade-F-v-n-openwrt-ramips-rt305x-nexx-wt1520-squashfs-sysupgrade-bin"><a href="#sysupgrade-F-v-n-openwrt-ramips-rt305x-nexx-wt1520-squashfs-sysupgrade-bin" class="headerlink" title="sysupgrade -F -v -n openwrt-ramips-rt305x-nexx-wt1520-squashfs-sysupgrade.bin"></a><strong>sysupgrade -F -v -n openwrt-ramips-rt305x-nexx-wt1520-squashfs-sysupgrade.bin</strong></h1><p>Sysupgrade is not yet supported on generic.</p>
+<p>Image check ‘platform_check_image’ failed but –force given - will update anyway!</p>
+<p>killall: watchdog: no process killed</p>
+<p>Sending TERM to remaining processes … dnsmasq ntpd ubusd askfirst logd netifd uhttpd</p>
+<p>Sending KILL to remaining processes … askfirst</p>
+<p>Switching to ramdisk…</p>
+<p>Performing system upgrade…</p>
+<p>Unlocking firmware …</p>
+<p>Writing fromto firmware …</p>
+<p>Upgrade completed</p>
+<p>Rebooting system…<br>重启系统了，现在可以把SSH软件关了，刷机已经完成了，等路由器启动完成后，输入<a href="http://10.10.10.123/访问" target="_blank" rel="external">http://10.10.10.123/访问</a><br><strong>路由器配置：</strong></p>
+<ul>
+<li>SoC:RT5350F＠360MHｚ</li>
+<li>RAM:32MB</li>
+<li>Flash:4MB</li>
+<li>WiFi/Eth:1T1R@150Mbps 100Base-TX(AutoMDI-MDIX)<br>&nbsp;</li>
+</ul>
+</blockquote>
+<p>下载中文语言包的方法：</p>
+<blockquote>
+<p>System-Software–Software-Actions，在Download and install package右边的文本框里输入：</p>
+<p><strong>luci-i18n-chinese</strong>，点击OK，系统即会自动下载并安装。</p>
+<p>安装完后到语言设置的位置选择chinese，然后刷新页面即可。</p>
+<p>没找到的话，可以再“Download and install package”里输入下载地址：</p>
+<p><a href="http://downloads.openwrt.org/snapshots/trunk/ramips/packages/luci/luci-i18n-chinese_git-14.305.31982-212d7be-1_ramips_24kec.ipk" target="_blank" rel="external">http://downloads.openwrt.org/snapshots/trunk/ramips/packages/luci/luci-i18n-chinese_git-14.305.31982-212d7be-1_ramips_24kec.ipk</a></p>
+<p>下载完后再重新按上面操作就可以了<br><strong>百度盘下载地址：</strong><br><a href="http://pan.baidu.com/s/1gdgUR2F" target="_blank" rel="external">http://pan.baidu.com/s/1gdgUR2F</a>   提取密码：42uy</p>
+<p><a href="http://pan.baidu.com/s/1i3tbXdV" target="_blank" rel="external">http://pan.baidu.com/s/1i3tbXdV</a>     提取密码：vf0e</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[TXTCMS]缩略图与文章图片自动上传贴图库]]></title>
+      <url>http://www.huoma.net/2015/04/21/txtcms-tietuku/</url>
+      <content type="html"><![CDATA[<p>转载文章最头疼的就是上传图片，一张一张的上传很费时间，图片的尺寸太大又会占用我们有限的空间及流量。</p>
+<p>前几天研究TXTCMS时给它做了一个小的功能，实现自动分析并上传到贴图库的，一举两得。<a id="more"></a></p>
+<p><strong>步骤：</strong></p>
+<p>//下载贴图库SDK文件,复制TieTuKu.class.php放到Core/Class文件夹</p>
+<p>//——–添加上传代码</p>
+<p><strong>//在Core\Action\Admin\ArticleAcion.class.php末尾 } 内加入</strong></p>
+<blockquote>
+<p>public function toTietuku(){</p>
+<p>@set_time_limit(300);</p>
+<p><em>//——-贴图库参数，可以在 <a href="http://open.tietuku.com/manager" target="_blank" rel="external">http://open.tietuku.com/manager</a> 获得———</em></p>
+<p>define(‘TTK_ACCESSKEY’, ‘###########’);</p>
+<p>define(‘TTK_SECRETKEY’, ‘$$$$$$$$$$$$’);</p>
+<p>define(‘TTK_ALBUM’,’相册ID’);</p>
+<p>//=——=———–</p>
+<p>include_once(APPLIB_PATH.’Class/TieTuKu.class.php’);</p>
+<p>$ttk=new TTKClient(TTK_ACCESSKEY,TTK_SECRETKEY);</p>
+<p>$body=trim($_POST[‘body’]);</p>
+<p>if(!empty($body)){</p>
+<p>$body=trim(get_magic($body));</p>
+<p>$basehost = “<a href="http://&quot;.$_SERVER[&quot;HTTP_HOST" target="_blank" rel="external">http://&quot;.$_SERVER[&quot;HTTP_HOST</a>“];</p>
+<p>$img_array = array();</p>
+<p>preg_match_all(“/src=([\”|’|\s]{0,})(http:\/\/([^&gt;]*).(gif|jpg|png|bmp))\1/isU”,$body,$img_array);</p>
+<p>$img_array = array_unique($img_array[2]);</p>
+<p>foreach($img_array as $key=&gt;$value){</p>
+<p>$value_parse=parse_url($value);</p>
+<p>$value_host=$value_parse[‘host’];</p>
+<p>if(preg_match(“#”.$basehost.”#i”, $value_host)){</p>
+<p>continue;</p>
+<p>}</p>
+<p>if(!preg_match(“#^http:\/\/#i”, $value)){</p>
+<p>continue;</p>
+<p>}</p>
+<p>if(preg_match(“#tietuku.com#i”, $value_host)){</p>
+<p>continue;</p>
+<p>}</p>
+<p>$itype = substr($value, -4, 4);</p>
+<p>if(!preg_match(“#.(jpg|gif|png|bmp)#i”, $itype)){</p>
+<p>continue;</p>
+<p>}</p>
+<p>$res=$ttk-&gt;uploadFromWeb(TTK_ALBUM,$value);</p>
+<p>$res_ary=json_decode($res,true);</p>
+<p>$newurl=$res_ary[“t_url”];</p>
+<p>if(preg_match(“#^http:\/\/#i”, $newurl)){</p>
+<p>$body = str_replace($value, $newurl, $body);</p>
+<p>}</p>
+<p>}</p>
+<p>echo trim($body);</p>
+<p>}</p>
+<p>$image=trim($_POST[‘image’]);</p>
+<p>if(!empty($image) &amp;&amp; !preg_match(“#tietuku.com#i”, $image)){</p>
+<p>$res=$ttk-&gt;uploadFromWeb(TTK_ALBUM,$image);</p>
+<p>$res_ary=json_decode($res,true);</p>
+<p>echo $res_ary[“t_url”];</p>
+<p>}</p>
+<p>}<br><strong>修改编辑器部分</strong><br>//static\Admin\Article_edit.html<br>//■1. <strong>添加上传选择</strong></p>
+<p>//在 &lt;input name=”remote” id=”remote” type=”checkbox” value=”1” /&gt; 远程图片自动下载&amp;nbsp;&amp;nbsp;</p>
+<p>//前面插入代码 &lt;input name=”tottk” id=”tottk” type=”checkbox” value=”1” /&gt; 远程图片上传贴图库&amp;nbsp;&amp;nbsp;</p>
+<p>//———————</p>
+<p>//■2.<strong> 添加Js代码</strong></p>
+<p>// 在if($(“#remote”).attr(“checked”)==true){ 前面插入一段代码</p>
+<p>//———-代码开始————-</p>
+<p>if($(“#tottk”).attr(“checked”)==true){</p>
+<p>body=editor.html();</p>
+<p>var autolitpic=($(“#autolitpic”).attr(“checked”)) ? 1 : 0;</p>
+<p>msgdialog=art.dialog({</p>
+<p>id:’savepic’,</p>
+<p>title:’提示’,</p>
+<p>lock:true,</p>
+<p>content:”&lt;img src=’static/images/load_blue.gif’ /&gt;&lt;br&gt;正在上传图片中…”</p>
+<p>});</p>
+<p>$.ajax({</p>
+<p>type:”post”,</p>
+<p>url:”{‘Admin/Article/toTietuku’|url}”,</p>
+<p>data:”image=”+$(‘#litpicfile’).val(),</p>
+<p>dataType:’text’,</p>
+<p>timeout:120000,</p>
+<p>global:false,</p>
+<p>success:function(data){</p>
+<p>$(‘#litpicfile’).val(data);</p>
+<p>msgdialog.content(“&lt;img src=’static/images/load_blue.gif’ /&gt;&lt;br&gt;上传缩略图成功！正在上传文章图片..”);</p>
+<p>setTimeout(“msgdialog.close();”,500);</p>
+<p>}</p>
+<p>});</p>
+<p>$.ajax({</p>
+<p>type:”post”,</p>
+<p>url:”{‘Admin/Article/toTietuku’|url}”,</p>
+<p>data:”body=”+encodeURIComponent(body),</p>
+<p>dataType:’text’,</p>
+<p>timeout:120000,</p>
+<p>global:false,</p>
+<p>success:function(data){</p>
+<p>editor.html(data);</p>
+<p>msgdialog.content(“&lt;img src=’static/images/load_blue.gif’ /&gt;&lt;br&gt;图片上传成功！正在保存文章..”);</p>
+<p>setTimeout(“msgdialog.close();”,500);</p>
+<p>setTimeout(“savearticle();”,500);</p>
+<p>}</p>
+<p>});</p>
+<p>return false;</p>
+<p>}</p>
+<p>//———–代码结束</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+  
+  
+</search>
