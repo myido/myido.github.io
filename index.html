@@ -986,8 +986,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/other/" itemprop="url" rel="index">
-                    <span itemprop="name">杂文聚合</span>
+                  <a href="/categories/BANANAPI/" itemprop="url" rel="index">
+                    <span itemprop="name">BANANAPI</span>
                   </a>
                 </span>
 
@@ -1028,74 +1028,88 @@
       
         
           
-            <p>在文章<a href="http://www.huoma.net/archives/openwrt_aria2/">《[openwrt]安装aria2脱机下载》</a>已经初步知道了aria2的安装及配置，然而在香蕉派中使用却碰到了无法自行启动，客户端连接出现“Error: Internal server error”等错误的问题，现在让我们一一解决：</p>
-<h3 id="1-让aria2随机自动启动"><a href="#1-让aria2随机自动启动" class="headerlink" title="1.让aria2随机自动启动"></a>1.让aria2随机自动启动</h3><p><strong>使用命令：</strong>ps -e | grep aria2c<br>如果能查到aria2这个进程，那么就说明已经启动了，下面这些步骤就可以省略了</p>
-<p><strong><br>创建文件</strong>/etc/init.d/aria2</p>
+            <p><img src="/files/post-img/aria2.jpg" alt=""></p>
+<p>在文章<a href="/2015/05/10/openwrt_aria2/">《[openwrt]安装aria2脱机下载》</a>已经初步知道了<a href="/tags/aria2/">aria2</a>的安装及配置，然而在<a href="/tags/bananapi/">香蕉派</a>中使用却碰到了无法自行启动，客户端连接出现“Error: Internal server error”等错误的问题：</p>
+<h2 id="让aria2随机自动启动"><a href="#让aria2随机自动启动" class="headerlink" title="让aria2随机自动启动"></a>让aria2随机自动启动</h2><p><strong>使用命令：</strong> ps -e | grep aria2c<br>如果能查到<a href="/tags/aria2/">aria2</a>这个进程，那么就说明已经启动了，下面这些步骤就可以省略了</p>
+<p>创建文件**/etc/init.d/aria2</p>
+<pre><code>\#\!\/bin\/sh
+\#\#\# BEGIN INIT INFO
+\# Provides:          aria2
+\# Required-Start:    $remote_fs $network
+\# Required-Stop:     $remote_fs $network
+\# Default-Start:     2 3 4 5
+\# Default-Stop:      0 1 6
+\# Short-Description: Aria2 Downloader
+\#\#\# END INIT INFO
+
+case &quot;$1&quot; in
+start)
+
+echo -n &quot;Starting aria2c&quot;
+sudo -u xbian aria2c --conf-path=/home/xbian/.aria2/aria2.conf -D
+\#sudo -u后面的是你正在使用的用户名，因为我用的XBian，用debian的是pi（没改用户的话）
+;;
+stop)
+
+echo -n &quot;Shutting down aria2c &quot;
+killall aria2c
+;;
+restart)
+
+killall aria2c
+sudo -u xbian aria2c --conf-path=/home/xbian/.aria2/aria2.conf -D
+\#同上面的一样，根据自己的用户名改xbian。
+;;
+esac
+exit
+</code></pre><p>##赋予执行权限：## </p>
 <blockquote>
-<p>#!/bin/sh</p>
-<h3 id="BEGIN-INIT-INFO"><a href="#BEGIN-INIT-INFO" class="headerlink" title="BEGIN INIT INFO"></a>BEGIN INIT INFO</h3><h1 id="Provides-Aria2-Short-Description-Aria2-Download-Manager"><a href="#Provides-Aria2-Short-Description-Aria2-Download-Manager" class="headerlink" title="Provides: Aria2 Short-Description: Aria2 - Download Manager"></a>Provides: Aria2 Short-Description: Aria2 - Download Manager</h1><h1 id="Description-Aria2-Download-Manager"><a href="#Description-Aria2-Download-Manager" class="headerlink" title="Description: Aria2 - Download Manager"></a>Description: Aria2 - Download Manager</h1><h3 id="END-INIT-INFO"><a href="#END-INIT-INFO" class="headerlink" title="END INIT INFO"></a>END INIT INFO</h3><p>RETVAL=0</p>
-<p>case “$1” in</p>
-<p>start)</p>
-<p>echo -n “Starting aria2c daemon: “</p>
-<p>umask 0000</p>
-<p>/usr/bin/aria2c –conf-path=<span style="color: #ff0000;">/etc/aria2/aria2.conf</span></p>
-<p>RETVAL=$?</p>
-<p>echo</p>
-<p>;;</p>
-<p>stop)</p>
-<p>echo -n “Shutting down aria2c daemon: “</p>
-<p>/usr/bin/killall aria2c</p>
-<p>RETVAL=$?</p>
-<p>echo</p>
-<p>;;</p>
-<p>restart)</p>
-<p>$0 stop</p>
-<p>sleep 3</p>
-<p>$0 start</p>
-<p>;;</p>
-<p>*)</p>
-<p>echo $”Usage: $0 {start|stop|restart}”</p>
-<p>RETVAL=1</p>
-<p>esac</p>
-<p>exit $RETVAL<br>红色部分是配置文件位置</p>
+<p>chmod 755 /etc/init.d/aria2</p>
 </blockquote>
-<p><strong>赋予执行权限：</strong>chmod 755 /etc/init.d/aria2</p>
-<p><strong>加入自启动命令</strong>/etc/rc.local</p>
-<blockquote>
-<p>sudo /etc/init.d/aria2 start<br>重启，在使用最上面那个命令查看进程是否已经启动。</p>
-</blockquote>
-<hr>
-<h2 id="2、安装客户端-bypy"><a href="#2、安装客户端-bypy" class="headerlink" title="2、安装客户端   bypy"></a>2、安装客户端   <a href="https://github.com/houtianze/bypy" target="_blank" rel="external">bypy</a></h2><p>使用MBL&amp;MC增强插件，虽然能添加下载任务，但是半天根本就没动静，所以又找了一个程序——<a href="https://github.com/houtianze/bypy" target="_blank" rel="external">bypy</a></p>
+<p>##加入自启动命令##<br>  将下条命令写入文件: /etc/rc.local</p>
+<pre><code>sudo /etc/init.d/aria2 start
+</code></pre><p>重启，在使用最上面那个命令查看进程是否已经启动。</p>
+<h2 id="安装bypy客户端"><a href="#安装bypy客户端" class="headerlink" title="安装bypy客户端"></a>安装bypy客户端</h2><p>使用MBL&amp;MC增强插件，虽然能添加下载任务，但是半天根本就没动静，所以又找了一个程序——bypy</p>
 <blockquote>
 <p>这是一个百度云/百度网盘的Python客户端。主要的目的就是在Linux环境下（Windows下应该也可用，但没有仔细测试过）通过命令行来使用百度云盘的2TB的巨大空间。比如，你可以用在Raspberry Pi树莓派上。它提供文件列表、下载、上传、比较、向上同步、向下同步，等操作。<br>使用后发现还能自动断点续传，缺点就是安装比较麻烦，没有界面。</p>
 </blockquote>
 <ul>
-<li><a href="https://github.com/LiuLang/bcloud" target="_blank" rel="external">bcloud</a> 是百度网盘的Linux桌面客户端.<br>1.安装程序：<blockquote>
+<li><p>bypy客户端下载<a href="https://github.com/houtianze/bypy" target="_blank" rel="external">https://github.com/houtianze/bypy</a></p>
+</li>
+<li><p><a href="https://github.com/LiuLang/bcloud" target="_blank" rel="external">bcloud</a> 是百度网盘的Linux桌面客户端.</p>
+</li>
+</ul>
+<p><strong>安装程序</strong>：</p>
+<blockquote>
 <ol>
 <li>sudo apt-get install git</li>
 <li>sudo apt-get install python</li>
-<li>git clone git://github.com/kennethreitz/requests.git<br>Requests是python的一个HTTP客户端库，跟urllib，urllib2类似.</li>
+<li>git clone git://github.com/kennethreitz/requests.git</li>
 </ol>
 </blockquote>
-</li>
-</ul>
-<p>执行命令：</p>
+<p>Requests是python的一个HTTP客户端库，跟urllib，urllib2类似.</p>
+<p><strong>执行命令</strong>：</p>
 <blockquote>
 <p>cd /root/requests/</p>
-<p>python setup.py install<br>下载bypy<br>git clone <a href="https://github.com/houtianze/bypy.git" target="_blank" rel="external">https://github.com/houtianze/bypy.git</a><br>在/root/文件夹里面就能看到bypy文件夹了，拷贝到任意文件夹里面<br>具体操作到<a href="https://github.com/houtianze/bypy" target="_blank" rel="external">https://github.com/houtianze/bypy</a></p>
+<p>python setup.py install</p>
 </blockquote>
-<p><span style="color: #ff0000;"><strong>由于百度PCS API权限限制，程序只能存取百度云端/apps/bypy目录下面的文件和目录。
-</strong></span>apps就是”我的应用数据“这个文件夹</p>
+<p><strong>下载bypy</strong></p>
 <blockquote>
-<p>/root/bypy/bypy.py syncdown <span style="color: #339966;">/vedio/</span> <span style="color: #3366ff;">/mnt/download/</span></p>
-<p>#<span style="color: #339966;">/vedio/</span>是百度云bypy文件夹下的vedio文件夹</p>
-<p>#<span style="color: #3366ff;">/mnt/download/</span>本地保存文件夹</p>
+<p>git clone <a href="https://github.com/houtianze/bypy.git" target="_blank" rel="external">https://github.com/houtianze/bypy.git</a></p>
 </blockquote>
+<p>在/root/文件夹里面就能看到bypy文件夹了，拷贝到任意文件夹里面</p>
+<p>具体操作到<a href="https://github.com/houtianze/bypy" target="_blank" rel="external">https://github.com/houtianze/bypy</a></p>
+<p><em>由于百度PCS API权限限制，程序只能存取百度云端/apps/bypy目录下面的文件和目录。</em></p>
 <p>这样只要保存到百度云的文件夹，执行这个命令就能同步到本地了</p>
-<h2 id="3-百度网盘助手【BaiduExporter】"><a href="#3-百度网盘助手【BaiduExporter】" class="headerlink" title="3.百度网盘助手【BaiduExporter】"></a>3.百度网盘助手【BaiduExporter】</h2><p>上面的bypy虽然能用，但是稍微麻烦了点。今天又找一个插件[百度网盘助手BaiduExporter],简单实用</p>
 <blockquote>
-<p>可以方便的把百度网盘的下载地址导出到aria2/aria2-rpc，支持YAAW。<br><a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">https://github.com/acgotaku/BaiduExporter</a></p>
+<p>root/bypy/bypy.py syncdown </p>
 </blockquote>
+<p><strong> 百度网盘助手【BaiduExporter】</strong></p>
+<p>上面的bypy虽然能用，但是稍微麻烦了点。又找一个插件[百度网盘助手BaiduExporter],简单实用</p>
+<blockquote>
+<p>可以方便的把百度网盘的下载地址导出到aria2/aria2-rpc，支持YAAW。</p>
+</blockquote>
+<p><a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">https://github.com/acgotaku/BaiduExporter</a></p>
 
           
         
@@ -1804,7 +1818,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1813,7 +1827,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

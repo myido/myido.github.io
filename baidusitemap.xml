@@ -3,25 +3,24 @@
 
 
     
-    
-    
-    
   <url>
     <loc>http://www.huoma.net/2015/05/10/openwrt-aria2/</loc>
-    <lastmod>2016-08-11T03:15:58.086Z</lastmod>
+    <lastmod>2016-08-12T12:50:35.037Z</lastmod>
     <data>
         <display>
         <title>[openwrt]安装aria2脱机下载</title>
         <pubTime>2015-05-10T04:14:04.000Z</pubTime>
         
+        <tag>aria2</tag>
+         
+        <tag>路由器</tag>
+         
         <tag>OPENWRT</tag>
          
-        <tag>路由器</tag>
-         
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+              <breadCrumb title="BANANAPI" url="http://www.huoma.net/categories/BANANAPI/"/>
           
         </display>
     </data>
@@ -29,145 +28,21 @@
 
     
   <url>
-    <loc>http://www.huoma.net/2015/04/21/openwrt-dnsmasq/</loc>
-    <lastmod>2016-08-11T03:15:58.086Z</lastmod>
+    <loc>http://www.huoma.net/2015/06/14/bananapi-aria2/</loc>
+    <lastmod>2016-08-12T12:27:55.764Z</lastmod>
     <data>
         <display>
-        <title>[OpenWRT]利用dnsmasq来实现广告过滤</title>
-        <pubTime>2015-04-20T17:34:07.000Z</pubTime>
+        <title>[BananaPI]安装aria2脱机下载[续]</title>
+        <pubTime>2015-06-14T12:58:40.000Z</pubTime>
         
-        <tag>OPENWRT</tag>
+        <tag>香蕉派</tag>
          
-        <tag>路由器</tag>
+        <tag>aria2</tag>
          
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2015/09/24/bananapi-mysql_recovery/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>[BananaPI]系统重装后MySQL数据恢复方法</title>
-        <pubTime>2015-09-24T12:52:57.000Z</pubTime>
-        
-        <tag>bananapi</tag>
-         
-        <tag>路由器</tag>
-         
-        <tag>PHP</tag>
-         
-        <tag>mysql</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2016/01/17/bananapi-openmediavault/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>[BananaPI]Openmediavault</title>
-        <pubTime>2016-01-17T02:14:01.000Z</pubTime>
-        
-        <tag>bananapi</tag>
-         
-        <tag>debian</tag>
-         
-        <tag>NAS</tag>
-         
-        <tag>openmediava</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2015/06/06/bananapi-pppoe/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>[BananaPI]香蕉派拨号上网</title>
-        <pubTime>2015-06-06T03:01:18.000Z</pubTime>
-        
-        <tag>bananapi</tag>
-         
-        <tag>debian</tag>
-         
-        <tag>路由器</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2015/06/03/bananapi-router/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>[BananaPI]把香蕉派变智能无线路由器</title>
-        <pubTime>2015-06-03T14:03:56.000Z</pubTime>
-        
-        <tag>bananapi</tag>
-         
-        <tag>debian</tag>
-         
-        <tag>路由器</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2015/09/13/bananapi-xunlei/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>[BananaPI]香蕉派支持迅雷离线下载</title>
-        <pubTime>2015-09-13T10:18:47.000Z</pubTime>
-        
-        <tag>bananapi</tag>
-         
-        <tag>debian</tag>
-         
-        <tag>路由器</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+              <breadCrumb title="BANANAPI" url="http://www.huoma.net/categories/BANANAPI/"/>
           
         </display>
     </data>
@@ -176,7 +51,7 @@
     
   <url>
     <loc>http://www.huoma.net/2015/06/03/bananapi/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <lastmod>2016-08-12T11:42:44.357Z</lastmod>
     <data>
         <display>
         <title>[BananaPI]开始折腾香蕉派</title>
@@ -189,164 +64,27 @@
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+              <breadCrumb title="BANANAPI" url="http://www.huoma.net/categories/BANANAPI/"/>
           
         </display>
     </data>
     </url>
 
     
+    
+    
+    
   <url>
-    <loc>http://www.huoma.net/2015/06/06/bananapi-disk/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <loc>http://www.huoma.net/2015/04/21/openwrt-dnsmasq/</loc>
+    <lastmod>2016-08-11T03:15:58.086Z</lastmod>
     <data>
         <display>
-        <title>[BananaPI]给香蕉派挂载移动硬盘或U盘</title>
-        <pubTime>2015-06-06T11:05:52.000Z</pubTime>
+        <title>[OpenWRT]利用dnsmasq来实现广告过滤</title>
+        <pubTime>2015-04-20T17:34:07.000Z</pubTime>
         
-        <tag>bananapi</tag>
-         
-        <tag>debian</tag>
-         
         <tag>路由器</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2015/04/21/nexx-wt1520-openwrt/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>NEXX 乐携WT1520刷OPENWRT</title>
-        <pubTime>2015-04-20T17:25:09.000Z</pubTime>
-        
-        <tag>OPENWRT</tag>
-         
-        <tag>路由器</tag>
-         
-        <tag>NEXX</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2015/06/14/bananapi-aria2/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>[BananaPI]安装aria2脱机下载[续]</title>
-        <pubTime>2015-06-14T12:58:40.000Z</pubTime>
-        
-        <tag>bananapi</tag>
          
         <tag>OPENWRT</tag>
-         
-        <tag>百度云</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2015/06/06/bananapi-dnsmasq/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>[BananaPI]用DNSMasq搭建DNS缓存服务器</title>
-        <pubTime>2015-06-06T03:41:20.000Z</pubTime>
-        
-        <tag>bananapi</tag>
-         
-        <tag>debian</tag>
-         
-        <tag>路由器</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2015/04/21/openwrt-upan/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>openwrt挂载U盘启动</title>
-        <pubTime>2015-04-20T17:30:18.000Z</pubTime>
-        
-        <tag>OPENWRT</tag>
-         
-        <tag>路由器</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2015/04/26/pregmatch/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>PHP正则表达式片段</title>
-        <pubTime>2015-04-26T01:03:42.000Z</pubTime>
-        
-        <tag>PHP</tag>
-         
-        <tag>正则表达式</tag>
-         
-         
-           
-             
-              <breadCrumb title="建站技术" url="http://www.huoma.net/categories/web/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2015/04/21/txtcms-tietuku/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>[TXTCMS]缩略图与文章图片自动上传贴图库</title>
-        <pubTime>2015-04-20T17:15:47.000Z</pubTime>
-        
-        <tag>TXTCMS</tag>
-         
-        <tag>贴图库</tag>
          
          
            
@@ -371,30 +109,6 @@
         <tag>lubuntu</tag>
          
         <tag>XBMC</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2015/09/19/bananapi-green_led/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>[BananaPI]关闭闪动的绿灯</title>
-        <pubTime>2015-09-19T12:46:11.000Z</pubTime>
-        
-        <tag>bananapi</tag>
-         
-        <tag>debian</tag>
-         
-        <tag>路由器</tag>
          
          
            
@@ -437,6 +151,292 @@
         <display>
         <title>[BananaPI]给Bananian安装gnome桌面+VNC</title>
         <pubTime>2015-09-23T12:42:35.000Z</pubTime>
+        
+        <tag>bananapi</tag>
+         
+        <tag>debian</tag>
+         
+        <tag>路由器</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2015/09/24/bananapi-mysql_recovery/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>[BananaPI]系统重装后MySQL数据恢复方法</title>
+        <pubTime>2015-09-24T12:52:57.000Z</pubTime>
+        
+        <tag>bananapi</tag>
+         
+        <tag>路由器</tag>
+         
+        <tag>mysql</tag>
+         
+        <tag>PHP</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2015/06/06/bananapi-disk/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>[BananaPI]给香蕉派挂载移动硬盘或U盘</title>
+        <pubTime>2015-06-06T11:05:52.000Z</pubTime>
+        
+        <tag>bananapi</tag>
+         
+        <tag>debian</tag>
+         
+        <tag>路由器</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2015/09/19/bananapi-green_led/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>[BananaPI]关闭闪动的绿灯</title>
+        <pubTime>2015-09-19T12:46:11.000Z</pubTime>
+        
+        <tag>bananapi</tag>
+         
+        <tag>debian</tag>
+         
+        <tag>路由器</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2015/09/13/bananapi-xunlei/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>[BananaPI]香蕉派支持迅雷离线下载</title>
+        <pubTime>2015-09-13T10:18:47.000Z</pubTime>
+        
+        <tag>bananapi</tag>
+         
+        <tag>debian</tag>
+         
+        <tag>路由器</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2015/06/06/bananapi-pppoe/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>[BananaPI]香蕉派拨号上网</title>
+        <pubTime>2015-06-06T03:01:18.000Z</pubTime>
+        
+        <tag>bananapi</tag>
+         
+        <tag>debian</tag>
+         
+        <tag>路由器</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2015/04/21/txtcms-tietuku/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>[TXTCMS]缩略图与文章图片自动上传贴图库</title>
+        <pubTime>2015-04-20T17:15:47.000Z</pubTime>
+        
+        <tag>TXTCMS</tag>
+         
+        <tag>贴图库</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2015/04/26/pregmatch/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>PHP正则表达式片段</title>
+        <pubTime>2015-04-26T01:03:42.000Z</pubTime>
+        
+        <tag>PHP</tag>
+         
+        <tag>正则表达式</tag>
+         
+         
+           
+             
+              <breadCrumb title="建站技术" url="http://www.huoma.net/categories/web/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2015/04/21/nexx-wt1520-openwrt/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>NEXX 乐携WT1520刷OPENWRT</title>
+        <pubTime>2015-04-20T17:25:09.000Z</pubTime>
+        
+        <tag>路由器</tag>
+         
+        <tag>OPENWRT</tag>
+         
+        <tag>NEXX</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2015/04/21/openwrt-upan/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>openwrt挂载U盘启动</title>
+        <pubTime>2015-04-20T17:30:18.000Z</pubTime>
+        
+        <tag>路由器</tag>
+         
+        <tag>OPENWRT</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2016/01/17/bananapi-openmediavault/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>[BananaPI]Openmediavault</title>
+        <pubTime>2016-01-17T02:14:01.000Z</pubTime>
+        
+        <tag>bananapi</tag>
+         
+        <tag>debian</tag>
+         
+        <tag>NAS</tag>
+         
+        <tag>openmediava</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2015/06/06/bananapi-dnsmasq/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>[BananaPI]用DNSMasq搭建DNS缓存服务器</title>
+        <pubTime>2015-06-06T03:41:20.000Z</pubTime>
+        
+        <tag>bananapi</tag>
+         
+        <tag>debian</tag>
+         
+        <tag>路由器</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2015/06/03/bananapi-router/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>[BananaPI]把香蕉派变智能无线路由器</title>
+        <pubTime>2015-06-03T14:03:56.000Z</pubTime>
         
         <tag>bananapi</tag>
          

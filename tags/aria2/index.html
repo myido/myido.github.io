@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="PHP,正则表达式," />
+  <meta name="keywords" content="免费资源下载" />
 
 
 
@@ -80,16 +80,15 @@
 
 
 
-<meta name="description" content="正则表达式经常要用.这里收集一些代码片段，以备不时之需.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="PHP正则表达式片段">
-<meta property="og:url" content="http://www.huoma.net/2015/04/26/pregmatch/index.html">
+<meta name="description" content="资源收集站">
+<meta property="og:type" content="website">
+<meta property="og:title" content="火马资源">
+<meta property="og:url" content="http://www.huoma.net/tags/aria2/index.html">
 <meta property="og:site_name" content="火马资源">
-<meta property="og:description" content="正则表达式经常要用.这里收集一些代码片段，以备不时之需.">
-<meta property="og:updated_time" content="2016-08-11T03:15:58.070Z">
+<meta property="og:description" content="资源收集站">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP正则表达式片段">
-<meta name="twitter:description" content="正则表达式经常要用.这里收集一些代码片段，以备不时之需.">
+<meta name="twitter:title" content="火马资源">
+<meta name="twitter:description" content="资源收集站">
 
 
 
@@ -110,9 +109,9 @@
 
 
 
-  <link rel="canonical" href="http://www.huoma.net/2015/04/26/pregmatch/"/>
+  <link rel="canonical" href="http://www.huoma.net/tags/aria2/"/>
 
-  <title> PHP正则表达式片段 | 火马资源 </title>
+  <title> 标签: aria2 | 火马资源 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +142,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -253,194 +252,73 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                PHP正则表达式片段
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-04-26T10:03:42+09:00" content="2015-04-26">
-              2015-04-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/web/" itemprop="url" rel="index">
-                    <span itemprop="name">建站技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/04/26/pregmatch/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/26/pregmatch/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>正则表达式经常要用.这里收集一些代码片段，以备不时之需.<a id="more"></a></p>
-<p><strong>验证域名</strong></p>
-<blockquote>
-<p>$url = “<a href="http://www.huoma.net/">http://www.huoma.net/</a>“;</p>
-<p>if (preg<em>match(‘/^(http|https|ftp)://([A-Z0-9][A-Z0-9</em>-]<em>(?:.[A-Z0-9][A-Z0-9_-]</em>)+):?(d+)?/?/i’, $url)) {</p>
-<div style="margin-left: 50px;">echo “Your url is ok.”;</div>
-
-<p>} else {</p>
-<div style="margin-left: 50px;">echo “Wrong url.”;</div>
-
-<p>}<br><strong>正文中词语标亮</strong><br>$text = “Sample sentence from KomunitasWeb, regex has become popular in web programming. Now we learn regex. According to wikipedia, Regular expressions (abbreviated as regex or regexp, with plural forms regexes, regexps, or regexen) are written in a formal language that can be interpreted by a regular expression processor”;</p>
-<p>$text = preg_replace(“/b(regex)b/i”, ‘&lt;span style=”background:#5fc9f6”&gt;1&lt;/span&gt;’, $text);</p>
-<p>echo $text;<br><strong>HTML中获取所有图片</strong><br>$images = array();</p>
-<p>preg_match_all(‘/(img|src)=(“|’)[^”‘&gt;]+/i’, $data, $media);</p>
-<p>unset($data);</p>
-<p>$data=preg_replace(‘/(img|src)(“|’|=”|=’)(.*)/i’,”$3”,$media[0]);</p>
-<p>foreach($data as $url)</p>
-<p>{</p>
-<div style="margin-left: 50px;">$info = pathinfo($url);<br><br>if (isset($info[‘extension’]))<br><br>{<br><br><div style="margin-left: 50px;">if (($info[‘extension’] == ‘jpg’) ||<br><br>($info[‘extension’] == ‘jpeg’) ||<br><br>($info[‘extension’] == ‘gif’) ||<br><br>($info[‘extension’] == ‘png’))<br><br>array_push($images, $url);</div>
-
-<p>}</p>
-<p></p></div><p></p>
-<p>}<br><strong>去除重复词语</strong><br>$text = preg_replace(“/s(w+s)1/i”, “$1”, $text);<br><strong>去除重复标点</strong><br>$text = preg_replace(“/s(w+s)1/i”, “$1”, $text);<br><strong>匹配XML/HTML 标签</strong><br>function get_tag( $tag, $xml ) {</p>
-<div style="margin-left: 50px;">$tag = preg_quote($tag);<br><br>preg_match_all(‘{&lt;’.$tag.’[^&gt;]<em>&gt;(.</em>?)&lt;/‘.$tag.’&gt;.’}’,<br><br><div style="margin-left: 50px;">$xml,<br><br>$matches,<br><br>PREG_PATTERN_ORDER);</div>
-
-<p>return $matches[1];</p>
-<p></p></div><p></p>
-<p>}<br><strong>匹配页面标题</strong><br>$fp = fopen(“<a href="http://www.huoma.net&quot;,&quot;r">http://www.huoma.net&quot;,&quot;r</a>“);</p>
-<p>while (!feof($fp) ){</p>
-<div style="margin-left: 50px;">$page .= fgets($fp, 4096);</div>
-
-<p>}</p>
-<p>$titre = eregi(“(.*)”,$page,$regs);</p>
-<p>echo $regs[1];</p>
-<p>fclose($fp);<br><strong>清除所有HTML标签</strong><br>$text = preg_replace</p>
-<div style="margin-left: 50px;">(<br><br>array(<br><br>// Remove invisible content<br><br>‘@&lt;head[^&gt;]<em>?&gt;.</em>?@siu’,<br><br>‘@&lt;style[^&gt;]<em>?&gt;.</em>?@siu’,<br><br>‘@&lt;script[^&gt;]<em>?.</em>?@siu’,<br><br>‘@&lt;object[^&gt;]<em>?.</em>?@siu’,<br><br>‘@&lt;embed[^&gt;]<em>?.</em>?@siu’,<br><br>‘@&lt;applet[^&gt;]<em>?.</em>?@siu’,<br><br>‘@&lt;noframes[^&gt;]<em>?.</em>?@siu’,<br><br>‘@&lt;noscript[^&gt;]<em>?.</em>?@siu’,<br><br>‘@&lt;noembed[^&gt;]<em>?.</em>?@siu’,<br><br>// Add line breaks before &amp; after blocks<br><br>‘@&lt;((br)|(hr))@iu’,<br><br>‘@ ‘@ ‘@ ‘@ ‘@ ‘@ ‘@ array(<br><br>‘ ‘, ‘ ‘, ‘ ‘, ‘ ‘, ‘ ‘, ‘ ‘, ‘ ‘, ‘ ‘, ‘ ‘,<br><br>“\n\$0”, “\n\$0”, “\n\$0”, “\n\$0”, “\n\$0”, “\n\$0”,<br><br>“\n\$0”, “\n\$0”,),$text<br><br>)</div>
-
-<p>// Remove all remaining tags and comments and return.</p>
-<p>$text = strip_tags( $text );</p>
-</blockquote>
-
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        aria2
+        <small>标签</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-
-      
-    </div>
-
-    <div>
-      
+            <a class="post-title-link" href="/2015/06/14/bananapi-aria2/" itemprop="url">
+              
+                <span itemprop="name">[BananaPI]安装aria2脱机下载[续]</span>
+              
+            </a>
         
+      </h1>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2015-06-14T20:58:40+08:00"
+              content="2015-06-14" >
+          06-14
+        </time>
+      </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/PHP/" rel="tag">#PHP</a>
-          
-            <a href="/tags/regex/" rel="tag">#正则表达式</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/04/21/openwrt-dnsmasq/" rel="next" title="[OpenWRT]利用dnsmasq来实现广告过滤">
-                <i class="fa fa-chevron-left"></i> [OpenWRT]利用dnsmasq来实现广告过滤
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/05/10/openwrt-aria2/" rel="prev" title="[openwrt]安装aria2脱机下载">
-                [openwrt]安装aria2脱机下载 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
+    
       
-    </div>
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2015/05/10/openwrt-aria2/" itemprop="url">
+              
+                <span itemprop="name">[openwrt]安装aria2脱机下载</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2015-05-10T12:14:04+08:00"
+              content="2015-05-10" >
+          05-10
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
   </div>
+  
 
 
           </div>
@@ -448,14 +326,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2015/04/26/pregmatch/"
-           data-title="PHP正则表达式片段" data-url="http://www.huoma.net/2015/04/26/pregmatch/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -475,17 +345,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/files/avatar.jpg"
@@ -535,17 +396,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <p class="post-toc-empty">此文章未包含目录</p>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -644,10 +494,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 

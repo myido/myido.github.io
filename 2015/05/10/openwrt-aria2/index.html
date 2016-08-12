@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="OPENWRT,路由器," />
+  <meta name="keywords" content="aria2,路由器,OPENWRT," />
 
 
 
@@ -82,20 +82,49 @@
 
 <meta name="description" content="Aria2支持HTTP/FTP/BT/磁力链等格式文件下载，并支持多线程或从多个地址同时时下载同一个文件等。
 同时还支持迅雷/百度/旋风离线下载，不过都需要会员才能使用。
-这些功能已经能满足大部分的使用要求了。">
+这些功能已经能满足大部分的使用要求了。
+
+##1.  更新软件列表##
+opkg update
+##2.  安装aria2##
+
+opkg install aria2
+
+##3.创建Aria2目录##
+在/etc/目录下新建目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[openwrt]安装aria2脱机下载">
 <meta property="og:url" content="http://www.huoma.net/2015/05/10/openwrt-aria2/index.html">
 <meta property="og:site_name" content="火马资源">
 <meta property="og:description" content="Aria2支持HTTP/FTP/BT/磁力链等格式文件下载，并支持多线程或从多个地址同时时下载同一个文件等。
 同时还支持迅雷/百度/旋风离线下载，不过都需要会员才能使用。
-这些功能已经能满足大部分的使用要求了。">
-<meta property="og:updated_time" content="2016-08-11T03:15:58.086Z">
+这些功能已经能满足大部分的使用要求了。
+
+##1.  更新软件列表##
+opkg update
+##2.  安装aria2##
+
+opkg install aria2
+
+##3.创建Aria2目录##
+在/etc/目录下新建目">
+<meta property="og:image" content="http://www.huoma.net/files/post-img/aria2.jpg">
+<meta property="og:updated_time" content="2016-08-12T12:50:35.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[openwrt]安装aria2脱机下载">
 <meta name="twitter:description" content="Aria2支持HTTP/FTP/BT/磁力链等格式文件下载，并支持多线程或从多个地址同时时下载同一个文件等。
 同时还支持迅雷/百度/旋风离线下载，不过都需要会员才能使用。
-这些功能已经能满足大部分的使用要求了。">
+这些功能已经能满足大部分的使用要求了。
+
+##1.  更新软件列表##
+opkg update
+##2.  安装aria2##
+
+opkg install aria2
+
+##3.创建Aria2目录##
+在/etc/目录下新建目">
+<meta name="twitter:image" content="http://www.huoma.net/files/post-img/aria2.jpg">
 
 
 
@@ -307,8 +336,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/other/" itemprop="url" rel="index">
-                    <span itemprop="name">杂文聚合</span>
+                  <a href="/categories/BANANAPI/" itemprop="url" rel="index">
+                    <span itemprop="name">BANANAPI</span>
                   </a>
                 </span>
 
@@ -347,46 +376,76 @@
       
 
       
-        <p>Aria2支持HTTP/FTP/BT/磁力链等格式文件下载，并支持多线程或从多个地址同时时下载同一个文件等。</p>
+        <p><img src="/files/post-img/aria2.jpg" alt=""></p>
+<p><a href="/tags/aria2/">Aria2</a>支持HTTP/FTP/BT/磁力链等格式文件下载，并支持多线程或从多个地址同时时下载同一个文件等。</p>
 <p>同时还支持迅雷/百度/旋风离线下载，不过都需要会员才能使用。</p>
 <p>这些功能已经能满足大部分的使用要求了。</p>
-<a id="more"></a>
-<p>操作步骤</p>
 <hr>
-<ol>
-<li>更新软件列表<br>opkg update</li>
-<li>安装aria2<br>opkg install aria2</li>
-<li>在/etc/目录下新建目录aria2<br>mkdir /etc/aria2/</li>
-<li>生成aria2.session文件（由于保存aria2运行记录）<br>touch /etc/aria2/aria2.session</li>
-<li><p>编辑aria2.conf文件（配置文件）<br>vi /etc/aria2/aria2.conf</p>
+<p>##1.  更新软件列表##</p>
+<p>opkg update</p>
+<p>##2.  安装aria2##</p>
 <blockquote>
-<p><strong>#文件保存目录自行修改</strong></p>
-<p><strong>dir=/mnt/download</strong></p>
-<p><strong>disable-ipv6=true</strong></p>
-<p><strong>#打开rpc的目的是为了给web管理端用</strong></p>
-<p><strong>enable-rpc=true</strong></p>
-<p><strong>rpc-allow-origin-all=true</strong></p>
-<p><strong>rpc-listen-all=true</strong></p>
-<p><strong>#rpc-listen-port=6800</strong></p>
-<p><strong>continue=true</strong></p>
-<p><strong>input-file=/etc/aria2/aria2.session</strong></p>
-<p><strong>save-session=/etc/aria2/aria2.session</strong></p>
-<p><strong>max-concurrent-downloads=3</strong></p>
+<p>opkg install aria2</p>
 </blockquote>
-</li>
-<li><p>测试配置文件（若没有报错即配置成功，可以按<strong><em>ctrl+c</em></strong>退出）<br>aria2c –conf-path=/etc/aria2/aria2.conf</p>
-</li>
-<li>让aria2开机启动<br>vi /etc/rc.load<br>在rc.load的<strong>exit 0</strong>的上一行添加：</li>
-</ol>
-<p><strong>aria2c –conf-path=/etc/aria2/aria2.conf -D</strong></p>
-<ol>
-<li>安装yaaw界面<a href="https://github.com/binux/yaaw" title="yaaw下载地址" target="_blank" rel="external">[下载地址]</a></li>
-</ol>
-<p>下载yaaw解压后将yaaw目录放置/www/<br>下即可访问：<a href="http://你的路由地址/yaaw/" target="_blank" rel="external">http://你的路由地址/yaaw/</a></p>
+<p>##3.创建Aria2目录##</p>
+<p>在/etc/目录下新建目录aria2</p>
+<blockquote>
+<p>mkdir /etc/aria2/</p>
+</blockquote>
+<p>##4.  生成aria2.session文件##</p>
+<p>   session文件用于保存aria2运行记录</p>
+<blockquote>
+<p>touch /etc/aria2/aria2.session</p>
+</blockquote>
+<p>##5.  修改配置</p>
+<p>编辑aria2.conf文件</p>
+<blockquote>
+<p>vi /etc/aria2/aria2.conf</p>
+</blockquote>
+<pre><code>\#文件保存目录自行修改
+
+dir=/mnt/download
+
+disable-ipv6=true
+
+\#打开rpc的目的是为了给web管理端用
+
+enable-rpc=true
+
+rpc-allow-origin-all=true
+
+rpc-listen-all=true
+
+\#rpc-listen-port=6800
+
+continue=tru*
+
+input-file=/etc/aria2/aria2.session
+
+save-session=/etc/aria2/aria2.session
+
+max-concurrent-downloads=3
+</code></pre><p>##6.  测试配置文件##</p>
+<blockquote>
+<p>aria2c –conf-path=/etc/aria2/aria2.conf</p>
+</blockquote>
+<p>若没有报错即配置成功，可以按<strong>ctrl+c</strong>退出</p>
+<p>##7.  随系统启动##</p>
+<blockquote>
+<p>vi /etc/rc.load</p>
+</blockquote>
+<p>在rc.load的<strong>exit 0</strong>的上一行添加：</p>
+<pre><code>aria2c --conf-path=/etc/aria2/aria2.conf -D
+</code></pre><p>##8.  安装yaaw界面##</p>
+<p><a href="https://github.com/binux/yaaw" target="_blank" rel="external">[下载yaaw]</a>解压后,将yaaw目录放置/www/</p>
+<p>下即可访问：<a href="http://你的路由地址/yaaw/" target="_blank" rel="external">http://你的路由地址/yaaw/</a></p>
 <p><strong>也可以安装Chrome浏览器扩展程序Yaaw，可以省去这步操作。</strong></p>
-<ol>
-<li>设置Yaaw<br>进入Setting界面<br>JSON-RPC Path：路由器地址:6800/jsonrpc<br>保存。<br>成功的话再次打开界面User Agent会出现aria2的版本，Base Dir保持位置等信息。<br>完成以上操作就可以进行离线下载了。</li>
-</ol>
+<p>##9.  设置Yaaw##</p>
+<p>进入Setting界面</p>
+<p>JSON-RPC Path：路由器地址:6800/jsonrpc</p>
+<p>保存。</p>
+<p>成功的话再次打开界面User Agent会出现aria2的版本，Base Dir保持位置等信息。</p>
+<p>完成以上操作就可以进行离线下载了。</p>
 
       
     </div>
@@ -409,9 +468,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/OPENWRT/" rel="tag">#OPENWRT</a>
+            <a href="/tags/aria2/" rel="tag">#aria2</a>
           
             <a href="/tags/Router/" rel="tag">#路由器</a>
+          
+            <a href="/tags/OPENWRT/" rel="tag">#OPENWRT</a>
           
         </div>
       
@@ -510,7 +571,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -519,7 +580,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

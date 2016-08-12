@@ -122,74 +122,88 @@
     <entry>
       <title><![CDATA[[BananaPI]安装aria2脱机下载[续]]]></title>
       <url>http://www.huoma.net/2015/06/14/bananapi-aria2/</url>
-      <content type="html"><![CDATA[<p>在文章<a href="http://www.huoma.net/archives/openwrt_aria2/">《[openwrt]安装aria2脱机下载》</a>已经初步知道了aria2的安装及配置，然而在香蕉派中使用却碰到了无法自行启动，客户端连接出现“Error: Internal server error”等错误的问题，现在让我们一一解决：</p>
-<h3 id="1-让aria2随机自动启动"><a href="#1-让aria2随机自动启动" class="headerlink" title="1.让aria2随机自动启动"></a>1.让aria2随机自动启动</h3><p><strong>使用命令：</strong>ps -e | grep aria2c<br>如果能查到aria2这个进程，那么就说明已经启动了，下面这些步骤就可以省略了</p>
-<p><strong><br>创建文件</strong>/etc/init.d/aria2</p>
+      <content type="html"><![CDATA[<p><img src="/files/post-img/aria2.jpg" alt=""></p>
+<p>在文章<a href="/2015/05/10/openwrt_aria2/">《[openwrt]安装aria2脱机下载》</a>已经初步知道了<a href="/tags/aria2/">aria2</a>的安装及配置，然而在<a href="/tags/bananapi/">香蕉派</a>中使用却碰到了无法自行启动，客户端连接出现“Error: Internal server error”等错误的问题：</p>
+<h2 id="让aria2随机自动启动"><a href="#让aria2随机自动启动" class="headerlink" title="让aria2随机自动启动"></a>让aria2随机自动启动</h2><p><strong>使用命令：</strong> ps -e | grep aria2c<br>如果能查到<a href="/tags/aria2/">aria2</a>这个进程，那么就说明已经启动了，下面这些步骤就可以省略了</p>
+<p>创建文件**/etc/init.d/aria2</p>
+<pre><code>\#\!\/bin\/sh
+\#\#\# BEGIN INIT INFO
+\# Provides:          aria2
+\# Required-Start:    $remote_fs $network
+\# Required-Stop:     $remote_fs $network
+\# Default-Start:     2 3 4 5
+\# Default-Stop:      0 1 6
+\# Short-Description: Aria2 Downloader
+\#\#\# END INIT INFO
+
+case &quot;$1&quot; in
+start)
+
+echo -n &quot;Starting aria2c&quot;
+sudo -u xbian aria2c --conf-path=/home/xbian/.aria2/aria2.conf -D
+\#sudo -u后面的是你正在使用的用户名，因为我用的XBian，用debian的是pi（没改用户的话）
+;;
+stop)
+
+echo -n &quot;Shutting down aria2c &quot;
+killall aria2c
+;;
+restart)
+
+killall aria2c
+sudo -u xbian aria2c --conf-path=/home/xbian/.aria2/aria2.conf -D
+\#同上面的一样，根据自己的用户名改xbian。
+;;
+esac
+exit
+</code></pre><p>##赋予执行权限：## </p>
 <blockquote>
-<p>#!/bin/sh</p>
-<h3 id="BEGIN-INIT-INFO"><a href="#BEGIN-INIT-INFO" class="headerlink" title="BEGIN INIT INFO"></a>BEGIN INIT INFO</h3><h1 id="Provides-Aria2-Short-Description-Aria2-Download-Manager"><a href="#Provides-Aria2-Short-Description-Aria2-Download-Manager" class="headerlink" title="Provides: Aria2 Short-Description: Aria2 - Download Manager"></a>Provides: Aria2 Short-Description: Aria2 - Download Manager</h1><h1 id="Description-Aria2-Download-Manager"><a href="#Description-Aria2-Download-Manager" class="headerlink" title="Description: Aria2 - Download Manager"></a>Description: Aria2 - Download Manager</h1><h3 id="END-INIT-INFO"><a href="#END-INIT-INFO" class="headerlink" title="END INIT INFO"></a>END INIT INFO</h3><p>RETVAL=0</p>
-<p>case “$1” in</p>
-<p>start)</p>
-<p>echo -n “Starting aria2c daemon: “</p>
-<p>umask 0000</p>
-<p>/usr/bin/aria2c –conf-path=<span style="color: #ff0000;">/etc/aria2/aria2.conf</span></p>
-<p>RETVAL=$?</p>
-<p>echo</p>
-<p>;;</p>
-<p>stop)</p>
-<p>echo -n “Shutting down aria2c daemon: “</p>
-<p>/usr/bin/killall aria2c</p>
-<p>RETVAL=$?</p>
-<p>echo</p>
-<p>;;</p>
-<p>restart)</p>
-<p>$0 stop</p>
-<p>sleep 3</p>
-<p>$0 start</p>
-<p>;;</p>
-<p>*)</p>
-<p>echo $”Usage: $0 {start|stop|restart}”</p>
-<p>RETVAL=1</p>
-<p>esac</p>
-<p>exit $RETVAL<br>红色部分是配置文件位置</p>
+<p>chmod 755 /etc/init.d/aria2</p>
 </blockquote>
-<p><strong>赋予执行权限：</strong>chmod 755 /etc/init.d/aria2</p>
-<p><strong>加入自启动命令</strong>/etc/rc.local</p>
-<blockquote>
-<p>sudo /etc/init.d/aria2 start<br>重启，在使用最上面那个命令查看进程是否已经启动。</p>
-</blockquote>
-<hr>
-<h2 id="2、安装客户端-bypy"><a href="#2、安装客户端-bypy" class="headerlink" title="2、安装客户端   bypy"></a>2、安装客户端   <a href="https://github.com/houtianze/bypy" target="_blank" rel="external">bypy</a></h2><p>使用MBL&amp;MC增强插件，虽然能添加下载任务，但是半天根本就没动静，所以又找了一个程序——<a href="https://github.com/houtianze/bypy" target="_blank" rel="external">bypy</a></p>
+<p>##加入自启动命令##<br>  将下条命令写入文件: /etc/rc.local</p>
+<pre><code>sudo /etc/init.d/aria2 start
+</code></pre><p>重启，在使用最上面那个命令查看进程是否已经启动。</p>
+<h2 id="安装bypy客户端"><a href="#安装bypy客户端" class="headerlink" title="安装bypy客户端"></a>安装bypy客户端</h2><p>使用MBL&amp;MC增强插件，虽然能添加下载任务，但是半天根本就没动静，所以又找了一个程序——bypy</p>
 <blockquote>
 <p>这是一个百度云/百度网盘的Python客户端。主要的目的就是在Linux环境下（Windows下应该也可用，但没有仔细测试过）通过命令行来使用百度云盘的2TB的巨大空间。比如，你可以用在Raspberry Pi树莓派上。它提供文件列表、下载、上传、比较、向上同步、向下同步，等操作。<br>使用后发现还能自动断点续传，缺点就是安装比较麻烦，没有界面。</p>
 </blockquote>
 <ul>
-<li><a href="https://github.com/LiuLang/bcloud" target="_blank" rel="external">bcloud</a> 是百度网盘的Linux桌面客户端.<br>1.安装程序：<blockquote>
+<li><p>bypy客户端下载<a href="https://github.com/houtianze/bypy" target="_blank" rel="external">https://github.com/houtianze/bypy</a></p>
+</li>
+<li><p><a href="https://github.com/LiuLang/bcloud" target="_blank" rel="external">bcloud</a> 是百度网盘的Linux桌面客户端.</p>
+</li>
+</ul>
+<p><strong>安装程序</strong>：</p>
+<blockquote>
 <ol>
 <li>sudo apt-get install git</li>
 <li>sudo apt-get install python</li>
-<li>git clone git://github.com/kennethreitz/requests.git<br>Requests是python的一个HTTP客户端库，跟urllib，urllib2类似.</li>
+<li>git clone git://github.com/kennethreitz/requests.git</li>
 </ol>
 </blockquote>
-</li>
-</ul>
-<p>执行命令：</p>
+<p>Requests是python的一个HTTP客户端库，跟urllib，urllib2类似.</p>
+<p><strong>执行命令</strong>：</p>
 <blockquote>
 <p>cd /root/requests/</p>
-<p>python setup.py install<br>下载bypy<br>git clone <a href="https://github.com/houtianze/bypy.git" target="_blank" rel="external">https://github.com/houtianze/bypy.git</a><br>在/root/文件夹里面就能看到bypy文件夹了，拷贝到任意文件夹里面<br>具体操作到<a href="https://github.com/houtianze/bypy" target="_blank" rel="external">https://github.com/houtianze/bypy</a></p>
+<p>python setup.py install</p>
 </blockquote>
-<p><span style="color: #ff0000;"><strong>由于百度PCS API权限限制，程序只能存取百度云端/apps/bypy目录下面的文件和目录。
-</strong></span>apps就是”我的应用数据“这个文件夹</p>
+<p><strong>下载bypy</strong></p>
 <blockquote>
-<p>/root/bypy/bypy.py syncdown <span style="color: #339966;">/vedio/</span> <span style="color: #3366ff;">/mnt/download/</span></p>
-<p>#<span style="color: #339966;">/vedio/</span>是百度云bypy文件夹下的vedio文件夹</p>
-<p>#<span style="color: #3366ff;">/mnt/download/</span>本地保存文件夹</p>
+<p>git clone <a href="https://github.com/houtianze/bypy.git" target="_blank" rel="external">https://github.com/houtianze/bypy.git</a></p>
 </blockquote>
+<p>在/root/文件夹里面就能看到bypy文件夹了，拷贝到任意文件夹里面</p>
+<p>具体操作到<a href="https://github.com/houtianze/bypy" target="_blank" rel="external">https://github.com/houtianze/bypy</a></p>
+<p><em>由于百度PCS API权限限制，程序只能存取百度云端/apps/bypy目录下面的文件和目录。</em></p>
 <p>这样只要保存到百度云的文件夹，执行这个命令就能同步到本地了</p>
-<h2 id="3-百度网盘助手【BaiduExporter】"><a href="#3-百度网盘助手【BaiduExporter】" class="headerlink" title="3.百度网盘助手【BaiduExporter】"></a>3.百度网盘助手【BaiduExporter】</h2><p>上面的bypy虽然能用，但是稍微麻烦了点。今天又找一个插件[百度网盘助手BaiduExporter],简单实用</p>
 <blockquote>
-<p>可以方便的把百度网盘的下载地址导出到aria2/aria2-rpc，支持YAAW。<br><a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">https://github.com/acgotaku/BaiduExporter</a></p>
+<p>root/bypy/bypy.py syncdown </p>
 </blockquote>
+<p><strong> 百度网盘助手【BaiduExporter】</strong></p>
+<p>上面的bypy虽然能用，但是稍微麻烦了点。又找一个插件[百度网盘助手BaiduExporter],简单实用</p>
+<blockquote>
+<p>可以方便的把百度网盘的下载地址导出到aria2/aria2-rpc，支持YAAW。</p>
+</blockquote>
+<p><a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">https://github.com/acgotaku/BaiduExporter</a></p>
 ]]></content>
     </entry>
     
@@ -468,24 +482,23 @@
     <entry>
       <title><![CDATA[[BananaPI]开始折腾香蕉派]]></title>
       <url>http://www.huoma.net/2015/06/03/bananapi/</url>
-      <content type="html"><![CDATA[<p>不小心烧了一下入手了一个香蕉派，果然是很深的坑啊。不想折腾的要慎重。相关参数可以百度一下。</p>
-<p><a href="http://www.lemaker.org/resources/29-4/%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6.html" target="_blank" rel="external">香蕉派网站</a>提供的可安装系统有：Android、Lubuntu、Raspbian、基于Debian的Bananian Linux（类似树莓派的Raspbian）、Kali Linux、OpenWrt、OpenSUSE、Fedora、ArchLinux等。</p>
-<p>花了几天试了Android、OpenWrt、Fedora、Raspbian、Bananian只有后面两种安装成功。</p>
-<p>决定就用Bananian，相关安装方法<a href="http://www.lemaker.org/resources/29-5/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97.html" target="_blank" rel="external">进这里</a></p>
-<p>使用HDMI连接电视作为显示器，安装完成碰见输入用户名跟密码，但是手上没有键盘，只能从配置文件入手。</p>
-<p><em>用户名与密码在相关的下载页面 ”串口登陆“看到。</em></p>
-<p>系统文件安装在linux分区中，在windows下看不见，必须安装《<a href="https://www.paragon-software.com/home/extfs-windows/" target="_blank" rel="external">Paragon ExtFS for Windows</a>》软件才能看到。</p>
+      <content type="html"><![CDATA[<p><img src="/files/post-img/bananapi.jpg" alt=""><br>入手了一个<a href="/tags/bananapi/">香蕉派</a>，开始使劲折腾。相关参数可以百度一下。</p>
+<p><a href="http://www.lemaker.org/resources/29-4/%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6.html" target="_blank" rel="external">香蕉派官方网站</a>提供的可安装系统有：Android、Lubuntu、Raspbian、基于<a href="/tags/debian/">Debian</a>的Bananian Linux（类似树莓派的Raspbian）、Kali Linux、OpenWrt、OpenSUSE、Fedora、ArchLinux等。</p>
+<h2 id="1-系统安装"><a href="#1-系统安装" class="headerlink" title="1.系统安装"></a>1.系统安装</h2><p>花了几天试了Android、OpenWrt、Fedora、Raspbian、Bananian只有后面两种安装成功。</p>
+<p>决定就用Bananian，相关安装方法《<a href="http://www.lemaker.org/resources/29-5/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97.html" target="_blank" rel="external">进这里</a>》</p>
+<p>使用HDMI连接电视作为显示器，安装完成碰见输入用户名跟密码，但是手上没有键盘，只能从配置文件入手。 （<em>用户名与密码在相关的下载页面 ”串口登陆“看到。</em>）</p>
+<p>将SD卡连上电脑，正常情况下在windows下是看不到linux分区的，必须安装《<a href="https://www.paragon-software.com/home/extfs-windows/" target="_blank" rel="external">Paragon ExtFS for Windows</a>》软件。</p>
 <blockquote>
 <p><span style="color: #0000ff;"><strong>修改/etc/inittab</strong></span></p>
-<p>#1:2345:respawn:/sbin/getty –noclear 38400 tty1</p>
+<p>#1:2345:respawn:/sbin/getty –noclear 38400 tty1 </p>
 <p>1:2345:respawn:/bin/login -f root tty1 &lt;/dev/tty1 &gt;/dev/tty1 2&gt;&amp;1</p>
 <p><span style="color: #808080;"><em>将第一行注释掉，新增第二行命令</em></span></p>
 <p><span style="color: #0000ff;"><strong>修改/etc/rc.local</strong></span>，在<span style="color: #ff0000;"><em>exit 0 </em></span>前加入</p>
 <p>su root -c startx<br>现在就能自动登陆了。</p>
 </blockquote>
-<p><strong>TIP：</strong>如果碰见系统黑屏或重启，可能是电压不足，可以试试把USB全卸了。</p>
-<hr>
-<p>把香蕉派连上路由器，用putty通过SSH就可以连接香蕉派了。<br>香蕉派第一次使用的时候需要进行一个简单的配置，在命令行模式下运行以下命令：</p>
+<p><em>TIP：</em>如果碰见系统黑屏或重启，可能是电压不足，可以试试把USB全卸了。</p>
+<p>把<a href="/tags/bananapi/">香蕉派</a>连上路由器，用putty通过SSH就可以连接了。</p>
+<h2 id="2-初始设置"><a href="#2-初始设置" class="headerlink" title="2.初始设置"></a>2.初始设置</h2><p><a href="/tags/bananapi/">香蕉派</a>第一次使用的时候需要进行一个简单的配置，在命令行模式下运行以下命令：</p>
 <p>$<strong>raspi-config</strong></p>
 <ol>
 <li>Expand Filesystem 扩展文件系统。</li>
@@ -498,18 +511,20 @@
 <li>Advanced Options 高级设置<br>Overscan 是否让屏幕内容全屏显示<br>Hostname 在网上邻居或者路由器能看到的主机名称<br>Memory Split 内存分配，选择给GPU多少内存<br>SSH 是否运行SSH登录，建议开此选项。<br>SPI 是否默认启动SPI内核驱动，新手就不用管了。<br>Audio 选择声音默认输出到模拟口还是HDMI口<br>Auto 自动选择<br>Force 3.5mm (‘headphone’) jack强制输出到3.5mm模拟口<br>Force HDMI 强制输出到HDMI<br>Update 把raspi-config这个工具自动升级到最新版本</li>
 <li>About raspi-config 关于raspi-config的信息。<br><strong>1.设置用户密码</strong>：passwd</li>
 </ol>
-<p><strong>2.安装sudo命令</strong>：apt-get install sudo</p>
-<p><strong>3.修改软件源</strong>/etc/apt/sources.list<br><em>注释掉原来的几个，然后添加中科大的源</em></p>
+<p>##3.安装sudo命令##：<br>  apt-get install sudo</p>
+<p>##3.修改软件源##<br>  <strong>/etc/apt/sources.list</strong><br>  <em>注释掉原来的几个，然后添加中科大的源</em></p>
+<p>&gt;</p>
 <blockquote>
-<p>_#中国科学技术大学</p>
-<p>_deb <a href="http://mirrors.ustc.edu.cn/debian/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/debian/</a> wheezy main non-free contrib</p>
+<p><em>#中国科学技术大学</em></p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/debian/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/debian/</a> wheezy main non-free contrib</p>
 <p>deb-src <a href="http://mirrors.ustc.edu.cn/debian/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/debian/</a> wheezy main non-free contrib</p>
 <p>deb <a href="http://mirrors.ustc.edu.cn/debian-security/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/debian-security/</a> wheezy/updates main contrib non-free</p>
 <p>deb-src <a href="http://mirrors.ustc.edu.cn/debian-security/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/debian-security/</a> wheezy/updates main contrib</p>
-<p>#日本debian</p>
+<p><strong>日本debian</strong></p>
 <p>deb <a href="http://ftp.jp.debian.org/debian/" target="_blank" rel="external">http://ftp.jp.debian.org/debian/</a> wheezy main non-free contrib</p>
-<p>deb-src <a href="http://ftp.jp.debian.org/debian/" target="_blank" rel="external">http://ftp.jp.debian.org/debian/</a> wheezy main non-free contrib<br><strong>4.更新系统</strong></p>
+<p>deb-src <a href="http://ftp.jp.debian.org/debian/" target="_blank" rel="external">http://ftp.jp.debian.org/debian/</a> wheezy main non-free contrib</p>
 </blockquote>
+<p>##4.更新系统##</p>
 <p>apt-get update<br>apt-get upgrade</p>
 ]]></content>
     </entry>
@@ -517,46 +532,76 @@
     <entry>
       <title><![CDATA[[openwrt]安装aria2脱机下载]]></title>
       <url>http://www.huoma.net/2015/05/10/openwrt-aria2/</url>
-      <content type="html"><![CDATA[<p>Aria2支持HTTP/FTP/BT/磁力链等格式文件下载，并支持多线程或从多个地址同时时下载同一个文件等。</p>
+      <content type="html"><![CDATA[<p><img src="/files/post-img/aria2.jpg" alt=""></p>
+<p><a href="/tags/aria2/">Aria2</a>支持HTTP/FTP/BT/磁力链等格式文件下载，并支持多线程或从多个地址同时时下载同一个文件等。</p>
 <p>同时还支持迅雷/百度/旋风离线下载，不过都需要会员才能使用。</p>
 <p>这些功能已经能满足大部分的使用要求了。</p>
-<a id="more"></a>
-<p>操作步骤</p>
 <hr>
-<ol>
-<li>更新软件列表<br>opkg update</li>
-<li>安装aria2<br>opkg install aria2</li>
-<li>在/etc/目录下新建目录aria2<br>mkdir /etc/aria2/</li>
-<li>生成aria2.session文件（由于保存aria2运行记录）<br>touch /etc/aria2/aria2.session</li>
-<li><p>编辑aria2.conf文件（配置文件）<br>vi /etc/aria2/aria2.conf</p>
+<p>##1.  更新软件列表##</p>
+<p>opkg update</p>
+<p>##2.  安装aria2##</p>
 <blockquote>
-<p><strong>#文件保存目录自行修改</strong></p>
-<p><strong>dir=/mnt/download</strong></p>
-<p><strong>disable-ipv6=true</strong></p>
-<p><strong>#打开rpc的目的是为了给web管理端用</strong></p>
-<p><strong>enable-rpc=true</strong></p>
-<p><strong>rpc-allow-origin-all=true</strong></p>
-<p><strong>rpc-listen-all=true</strong></p>
-<p><strong>#rpc-listen-port=6800</strong></p>
-<p><strong>continue=true</strong></p>
-<p><strong>input-file=/etc/aria2/aria2.session</strong></p>
-<p><strong>save-session=/etc/aria2/aria2.session</strong></p>
-<p><strong>max-concurrent-downloads=3</strong></p>
+<p>opkg install aria2</p>
 </blockquote>
-</li>
-<li><p>测试配置文件（若没有报错即配置成功，可以按<strong><em>ctrl+c</em></strong>退出）<br>aria2c –conf-path=/etc/aria2/aria2.conf</p>
-</li>
-<li>让aria2开机启动<br>vi /etc/rc.load<br>在rc.load的<strong>exit 0</strong>的上一行添加：</li>
-</ol>
-<p><strong>aria2c –conf-path=/etc/aria2/aria2.conf -D</strong></p>
-<ol>
-<li>安装yaaw界面<a href="https://github.com/binux/yaaw" title="yaaw下载地址" target="_blank" rel="external">[下载地址]</a></li>
-</ol>
-<p>下载yaaw解压后将yaaw目录放置/www/<br>下即可访问：<a href="http://你的路由地址/yaaw/" target="_blank" rel="external">http://你的路由地址/yaaw/</a></p>
+<p>##3.创建Aria2目录##</p>
+<p>在/etc/目录下新建目录aria2</p>
+<blockquote>
+<p>mkdir /etc/aria2/</p>
+</blockquote>
+<p>##4.  生成aria2.session文件##</p>
+<p>   session文件用于保存aria2运行记录</p>
+<blockquote>
+<p>touch /etc/aria2/aria2.session</p>
+</blockquote>
+<p>##5.  修改配置</p>
+<p>编辑aria2.conf文件</p>
+<blockquote>
+<p>vi /etc/aria2/aria2.conf</p>
+</blockquote>
+<pre><code>\#文件保存目录自行修改
+
+dir=/mnt/download
+
+disable-ipv6=true
+
+\#打开rpc的目的是为了给web管理端用
+
+enable-rpc=true
+
+rpc-allow-origin-all=true
+
+rpc-listen-all=true
+
+\#rpc-listen-port=6800
+
+continue=tru*
+
+input-file=/etc/aria2/aria2.session
+
+save-session=/etc/aria2/aria2.session
+
+max-concurrent-downloads=3
+</code></pre><p>##6.  测试配置文件##</p>
+<blockquote>
+<p>aria2c –conf-path=/etc/aria2/aria2.conf</p>
+</blockquote>
+<p>若没有报错即配置成功，可以按<strong>ctrl+c</strong>退出</p>
+<p>##7.  随系统启动##</p>
+<blockquote>
+<p>vi /etc/rc.load</p>
+</blockquote>
+<p>在rc.load的<strong>exit 0</strong>的上一行添加：</p>
+<pre><code>aria2c --conf-path=/etc/aria2/aria2.conf -D
+</code></pre><p>##8.  安装yaaw界面##</p>
+<p><a href="https://github.com/binux/yaaw" target="_blank" rel="external">[下载yaaw]</a>解压后,将yaaw目录放置/www/</p>
+<p>下即可访问：<a href="http://你的路由地址/yaaw/" target="_blank" rel="external">http://你的路由地址/yaaw/</a></p>
 <p><strong>也可以安装Chrome浏览器扩展程序Yaaw，可以省去这步操作。</strong></p>
-<ol>
-<li>设置Yaaw<br>进入Setting界面<br>JSON-RPC Path：路由器地址:6800/jsonrpc<br>保存。<br>成功的话再次打开界面User Agent会出现aria2的版本，Base Dir保持位置等信息。<br>完成以上操作就可以进行离线下载了。</li>
-</ol>
+<p>##9.  设置Yaaw##</p>
+<p>进入Setting界面</p>
+<p>JSON-RPC Path：路由器地址:6800/jsonrpc</p>
+<p>保存。</p>
+<p>成功的话再次打开界面User Agent会出现aria2的版本，Base Dir保持位置等信息。</p>
+<p>完成以上操作就可以进行离线下载了。</p>
 ]]></content>
     </entry>
     
