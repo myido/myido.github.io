@@ -3,6 +3,28 @@
 
 
     
+  <url>
+    <loc>http://www.huoma.net/2015/06/03/bananapi/</loc>
+    <lastmod>2016-08-12T13:13:27.383Z</lastmod>
+    <data>
+        <display>
+        <title>[BananaPI]开始折腾香蕉派</title>
+        <pubTime>2015-06-03T10:30:43.000Z</pubTime>
+        
+        <tag>bananapi</tag>
+         
+        <tag>debian</tag>
+         
+         
+           
+             
+              <breadCrumb title="BANANAPI" url="http://www.huoma.net/categories/BANANAPI/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
     
@@ -53,28 +75,6 @@
     </url>
 
     
-  <url>
-    <loc>http://www.huoma.net/2015/06/03/bananapi/</loc>
-    <lastmod>2016-08-12T11:42:44.357Z</lastmod>
-    <data>
-        <display>
-        <title>[BananaPI]开始折腾香蕉派</title>
-        <pubTime>2015-06-03T10:30:43.000Z</pubTime>
-        
-        <tag>bananapi</tag>
-         
-        <tag>debian</tag>
-         
-         
-           
-             
-              <breadCrumb title="BANANAPI" url="http://www.huoma.net/categories/BANANAPI/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
     
     
     
@@ -101,21 +101,21 @@
 
     
   <url>
-    <loc>http://www.huoma.net/2015/04/21/txtcms-tietuku/</loc>
+    <loc>http://www.huoma.net/2015/04/26/pregmatch/</loc>
     <lastmod>2016-08-11T03:15:58.070Z</lastmod>
     <data>
         <display>
-        <title>[TXTCMS]缩略图与文章图片自动上传贴图库</title>
-        <pubTime>2015-04-20T17:15:47.000Z</pubTime>
+        <title>PHP正则表达式片段</title>
+        <pubTime>2015-04-26T01:03:42.000Z</pubTime>
         
-        <tag>TXTCMS</tag>
+        <tag>PHP</tag>
          
-        <tag>贴图库</tag>
+        <tag>正则表达式</tag>
          
          
            
              
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+              <breadCrumb title="建站技术" url="http://www.huoma.net/categories/web/"/>
           
         </display>
     </data>
@@ -123,18 +123,18 @@
 
     
   <url>
-    <loc>http://www.huoma.net/2015/09/23/bananian-gnome-vnc/</loc>
+    <loc>http://www.huoma.net/2015/04/21/nexx-wt1520-openwrt/</loc>
     <lastmod>2016-08-11T03:15:58.070Z</lastmod>
     <data>
         <display>
-        <title>[BananaPI]给Bananian安装gnome桌面+VNC</title>
-        <pubTime>2015-09-23T12:42:35.000Z</pubTime>
+        <title>NEXX 乐携WT1520刷OPENWRT</title>
+        <pubTime>2015-04-20T17:25:09.000Z</pubTime>
         
-        <tag>bananapi</tag>
-         
-        <tag>debian</tag>
-         
         <tag>路由器</tag>
+         
+        <tag>NEXX</tag>
+         
+        <tag>OPENWRT</tag>
          
          
            
@@ -153,6 +153,54 @@
         <display>
         <title>[BananaPI]给香蕉派挂载移动硬盘或U盘</title>
         <pubTime>2015-06-06T11:05:52.000Z</pubTime>
+        
+        <tag>bananapi</tag>
+         
+        <tag>debian</tag>
+         
+        <tag>路由器</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2015/06/08/bananapi-password/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>[BananaPI]香蕉派忘记密码了怎么办</title>
+        <pubTime>2015-06-08T03:41:41.000Z</pubTime>
+        
+        <tag>bananapi</tag>
+         
+        <tag>lubuntu</tag>
+         
+        <tag>XBMC</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.huoma.net/2015/06/03/bananapi-router/</loc>
+    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
+    <data>
+        <display>
+        <title>[BananaPI]把香蕉派变智能无线路由器</title>
+        <pubTime>2015-06-03T14:03:56.000Z</pubTime>
         
         <tag>bananapi</tag>
          
@@ -193,52 +241,6 @@
 
     
   <url>
-    <loc>http://www.huoma.net/2015/04/26/pregmatch/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>PHP正则表达式片段</title>
-        <pubTime>2015-04-26T01:03:42.000Z</pubTime>
-        
-        <tag>PHP</tag>
-         
-        <tag>正则表达式</tag>
-         
-         
-           
-             
-              <breadCrumb title="建站技术" url="http://www.huoma.net/categories/web/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.huoma.net/2015/06/08/bananapi-password/</loc>
-    <lastmod>2016-08-11T03:15:58.070Z</lastmod>
-    <data>
-        <display>
-        <title>[BananaPI]香蕉派忘记密码了怎么办</title>
-        <pubTime>2015-06-08T03:41:41.000Z</pubTime>
-        
-        <tag>bananapi</tag>
-         
-        <tag>lubuntu</tag>
-         
-        <tag>XBMC</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文聚合" url="http://www.huoma.net/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.huoma.net/2015/06/06/bananapi-pppoe/</loc>
     <lastmod>2016-08-11T03:15:58.070Z</lastmod>
     <data>
@@ -263,18 +265,16 @@
 
     
   <url>
-    <loc>http://www.huoma.net/2015/04/21/nexx-wt1520-openwrt/</loc>
+    <loc>http://www.huoma.net/2015/04/21/txtcms-tietuku/</loc>
     <lastmod>2016-08-11T03:15:58.070Z</lastmod>
     <data>
         <display>
-        <title>NEXX 乐携WT1520刷OPENWRT</title>
-        <pubTime>2015-04-20T17:25:09.000Z</pubTime>
+        <title>[TXTCMS]缩略图与文章图片自动上传贴图库</title>
+        <pubTime>2015-04-20T17:15:47.000Z</pubTime>
         
-        <tag>路由器</tag>
+        <tag>TXTCMS</tag>
          
-        <tag>NEXX</tag>
-         
-        <tag>OPENWRT</tag>
+        <tag>贴图库</tag>
          
          
            
@@ -287,18 +287,20 @@
 
     
   <url>
-    <loc>http://www.huoma.net/2015/09/13/bananapi-xunlei/</loc>
+    <loc>http://www.huoma.net/2016/01/17/bananapi-openmediavault/</loc>
     <lastmod>2016-08-11T03:15:58.070Z</lastmod>
     <data>
         <display>
-        <title>[BananaPI]香蕉派支持迅雷离线下载</title>
-        <pubTime>2015-09-13T10:18:47.000Z</pubTime>
+        <title>[BananaPI]Openmediavault</title>
+        <pubTime>2016-01-17T02:14:01.000Z</pubTime>
         
         <tag>bananapi</tag>
          
         <tag>debian</tag>
          
-        <tag>路由器</tag>
+        <tag>NAS</tag>
+         
+        <tag>openmediava</tag>
          
          
            
@@ -361,12 +363,12 @@
 
     
   <url>
-    <loc>http://www.huoma.net/2015/06/03/bananapi-router/</loc>
+    <loc>http://www.huoma.net/2015/09/23/bananian-gnome-vnc/</loc>
     <lastmod>2016-08-11T03:15:58.070Z</lastmod>
     <data>
         <display>
-        <title>[BananaPI]把香蕉派变智能无线路由器</title>
-        <pubTime>2015-06-03T14:03:56.000Z</pubTime>
+        <title>[BananaPI]给Bananian安装gnome桌面+VNC</title>
+        <pubTime>2015-09-23T12:42:35.000Z</pubTime>
         
         <tag>bananapi</tag>
          
@@ -433,20 +435,18 @@
 
     
   <url>
-    <loc>http://www.huoma.net/2016/01/17/bananapi-openmediavault/</loc>
+    <loc>http://www.huoma.net/2015/09/13/bananapi-xunlei/</loc>
     <lastmod>2016-08-11T03:15:58.070Z</lastmod>
     <data>
         <display>
-        <title>[BananaPI]Openmediavault</title>
-        <pubTime>2016-01-17T02:14:01.000Z</pubTime>
+        <title>[BananaPI]香蕉派支持迅雷离线下载</title>
+        <pubTime>2015-09-13T10:18:47.000Z</pubTime>
         
         <tag>bananapi</tag>
          
         <tag>debian</tag>
          
-        <tag>NAS</tag>
-         
-        <tag>openmediava</tag>
+        <tag>路由器</tag>
          
          
            

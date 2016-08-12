@@ -484,7 +484,8 @@ exit
       <url>http://www.huoma.net/2015/06/03/bananapi/</url>
       <content type="html"><![CDATA[<p><img src="/files/post-img/bananapi.jpg" alt=""><br>入手了一个<a href="/tags/bananapi/">香蕉派</a>，开始使劲折腾。相关参数可以百度一下。</p>
 <p><a href="http://www.lemaker.org/resources/29-4/%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6.html" target="_blank" rel="external">香蕉派官方网站</a>提供的可安装系统有：Android、Lubuntu、Raspbian、基于<a href="/tags/debian/">Debian</a>的Bananian Linux（类似树莓派的Raspbian）、Kali Linux、OpenWrt、OpenSUSE、Fedora、ArchLinux等。</p>
-<h2 id="1-系统安装"><a href="#1-系统安装" class="headerlink" title="1.系统安装"></a>1.系统安装</h2><p>花了几天试了Android、OpenWrt、Fedora、Raspbian、Bananian只有后面两种安装成功。</p>
+<p>##系统安装##</p>
+<p>花了几天试了Android、OpenWrt、Fedora、Raspbian、Bananian只有后面两种安装成功。</p>
 <p>决定就用Bananian，相关安装方法《<a href="http://www.lemaker.org/resources/29-5/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97.html" target="_blank" rel="external">进这里</a>》</p>
 <p>使用HDMI连接电视作为显示器，安装完成碰见输入用户名跟密码，但是手上没有键盘，只能从配置文件入手。 （<em>用户名与密码在相关的下载页面 ”串口登陆“看到。</em>）</p>
 <p>将SD卡连上电脑，正常情况下在windows下是看不到linux分区的，必须安装《<a href="https://www.paragon-software.com/home/extfs-windows/" target="_blank" rel="external">Paragon ExtFS for Windows</a>》软件。</p>
@@ -498,8 +499,10 @@ exit
 </blockquote>
 <p><em>TIP：</em>如果碰见系统黑屏或重启，可能是电压不足，可以试试把USB全卸了。</p>
 <p>把<a href="/tags/bananapi/">香蕉派</a>连上路由器，用putty通过SSH就可以连接了。</p>
-<h2 id="2-初始设置"><a href="#2-初始设置" class="headerlink" title="2.初始设置"></a>2.初始设置</h2><p><a href="/tags/bananapi/">香蕉派</a>第一次使用的时候需要进行一个简单的配置，在命令行模式下运行以下命令：</p>
-<p>$<strong>raspi-config</strong></p>
+<p>##初始设置##<br><a href="/tags/bananapi/">香蕉派</a>第一次使用的时候需要进行一个简单的配置，在命令行模式下运行以下命令：</p>
+<blockquote>
+<p>raspi-config</p>
+<blockquote>
 <ol>
 <li>Expand Filesystem 扩展文件系统。</li>
 <li>Change User Password 改变默认密码，没用，改不了。</li>
@@ -509,10 +512,20 @@ exit
 <li>Add to Rastrack  把你的的地理位置添加到一个全世界开启此选项的地图，建议还是不要开了，免得被跟踪。</li>
 <li>Overclock<br>None 不超频，运行在700Mhz，核心频率250Mhz，内存频率400Mhz，不增加电压<br>Modest 适度超频，运行在800Mhz，核心频率250Mhz，内存频率400Mhz，不增加电压<br>Medium 中度超频，运行在900Mhz，核心频率250Mhz，内存频率450Mhz，增加电压2<br>High 高度超频，运行在950Mhz，核心频率250Mhz，内存频率450Mhz，增加电压6<br>Turbo 终极超频，运行在1000Mhz，核心频率500Mhz，内存频率600Mhz，增加电压6</li>
 <li>Advanced Options 高级设置<br>Overscan 是否让屏幕内容全屏显示<br>Hostname 在网上邻居或者路由器能看到的主机名称<br>Memory Split 内存分配，选择给GPU多少内存<br>SSH 是否运行SSH登录，建议开此选项。<br>SPI 是否默认启动SPI内核驱动，新手就不用管了。<br>Audio 选择声音默认输出到模拟口还是HDMI口<br>Auto 自动选择<br>Force 3.5mm (‘headphone’) jack强制输出到3.5mm模拟口<br>Force HDMI 强制输出到HDMI<br>Update 把raspi-config这个工具自动升级到最新版本</li>
-<li>About raspi-config 关于raspi-config的信息。<br><strong>1.设置用户密码</strong>：passwd</li>
+<li>About raspi-config 关于raspi-config的信息。</li>
 </ol>
-<p>##3.安装sudo命令##：<br>  apt-get install sudo</p>
-<p>##3.修改软件源##<br>  <strong>/etc/apt/sources.list</strong><br>  <em>注释掉原来的几个，然后添加中科大的源</em></p>
+</blockquote>
+</blockquote>
+<p>###设置用户密码###</p>
+<blockquote>
+<p>passwd</p>
+</blockquote>
+<p>###安装sudo命令###</p>
+<blockquote>
+<p>apt-get install sudo</p>
+</blockquote>
+<p>###修改软件源###<br>  <strong>/etc/apt/sources.list</strong></p>
+<p>  <em>注释掉原来的几个，然后添加中科大的源</em></p>
 <p>&gt;</p>
 <blockquote>
 <p><em>#中国科学技术大学</em></p>
@@ -520,12 +533,15 @@ exit
 <p>deb-src <a href="http://mirrors.ustc.edu.cn/debian/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/debian/</a> wheezy main non-free contrib</p>
 <p>deb <a href="http://mirrors.ustc.edu.cn/debian-security/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/debian-security/</a> wheezy/updates main contrib non-free</p>
 <p>deb-src <a href="http://mirrors.ustc.edu.cn/debian-security/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/debian-security/</a> wheezy/updates main contrib</p>
-<p><strong>日本debian</strong></p>
+<p><em>#日本debian</em></p>
 <p>deb <a href="http://ftp.jp.debian.org/debian/" target="_blank" rel="external">http://ftp.jp.debian.org/debian/</a> wheezy main non-free contrib</p>
 <p>deb-src <a href="http://ftp.jp.debian.org/debian/" target="_blank" rel="external">http://ftp.jp.debian.org/debian/</a> wheezy main non-free contrib</p>
 </blockquote>
-<p>##4.更新系统##</p>
-<p>apt-get update<br>apt-get upgrade</p>
+<p>##更新系统##</p>
+<blockquote>
+<p>apt-get update</p>
+<p>apt-get upgrade</p>
+</blockquote>
 ]]></content>
     </entry>
     
